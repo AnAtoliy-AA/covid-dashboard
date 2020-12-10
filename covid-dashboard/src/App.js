@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+
+import Cases from './components/Cases/Cases';
+import CountryLevel from './components/CountryLevel/CountryLevel';
+import CovidGraph from './components/CovidGraph/CovidGraph';
+import CovidMap from './components/CovidMap/CovidMap';
+import GlobalCases from './components/GlobalCases/GlobalCases';
+import GlobalDeaths from './components/GlobalDeaths/GlobalDeaths';
+import Header from './components/Header/Header';
+import React from 'react';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app-wrapper'>
+      <Header />
+      <div className='app-wrapper__content'>
+        <GlobalCases />
+        <Cases />
+        <CovidMap />
+        <GlobalDeaths />
+        <CountryLevel />
+        <CovidGraph />
+      </div>
     </div>
   );
 }
