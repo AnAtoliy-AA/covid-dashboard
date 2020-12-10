@@ -1,6 +1,6 @@
 import './App.css';
 
-import Cases from './components/Cases/Cases';
+import CasesContainer from './components/Cases/CasesContainer';
 import CountryLevel from './components/CountryLevel/CountryLevel';
 import CovidGraph from './components/CovidGraph/CovidGraph';
 import CovidMap from './components/CovidMap/CovidMap';
@@ -15,7 +15,7 @@ function App() {
       <Header />
       <div className='app-wrapper__content'>
         <GlobalCases />
-        <Cases />
+        <CasesContainer />
         <CovidMap />
         <GlobalDeaths />
         <CountryLevel />
