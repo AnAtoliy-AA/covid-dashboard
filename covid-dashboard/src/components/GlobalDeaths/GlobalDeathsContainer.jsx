@@ -1,4 +1,4 @@
-import CountryLevel from './CountryLevel'
+import GlobalDeaths from './GlobalDeaths';
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
@@ -10,7 +10,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
+
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CountryLevel);
+export default connect(mapStateToProps, mapDispatchToProps)(GlobalDeaths);

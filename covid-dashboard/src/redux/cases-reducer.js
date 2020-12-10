@@ -8,6 +8,7 @@ const ACTION_CONST = {
 let initialState = {
     countries: [],
     country: '',
+    global: '',
 }
 
 const casesReducer = (state = initialState, action) => {

@@ -1,4 +1,4 @@
-import CountryLevel from './CountryLevel'
+import CountryRecovered from './CountryRecovered'
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
@@ -13,4 +13,4 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CountryLevel);
+export default connect(mapStateToProps, mapDispatchToProps)(CountryRecovered);

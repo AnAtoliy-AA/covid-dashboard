@@ -7,11 +7,11 @@ export default class CountryLevel extends Component {
   
   render() {
         return(
-         <div className={styles.countryLevel}>CountryLevel
-         
+         <div className={styles.countryLevel}>
          <div>
-           {console.log('here:', this.props.country.Country)}
-           {this.props.country.Country}
+         <div>{`${this.props.country.Country} confirmed`}</div>
+           <div>{`NewConfirmed: ${this.props.country.NewConfirmed}`}</div>
+           <div>{`TotalConfirmed: ${this.props.country.TotalConfirmed}`}</div>
          </div>
          </div>
         )

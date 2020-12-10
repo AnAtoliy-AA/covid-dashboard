@@ -17,7 +17,7 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(setCountriesDataActionCreator(countries))
         },
         setGlobalData: (global) => {
-           dispatch(setGlobalDataActionCreator(global))
+            dispatch(setGlobalDataActionCreator(global))
         },
         setActiveCountry: (country) => {
             dispatch(setActiveCountryActionCreator(country))

@@ -19,6 +19,7 @@ export default class Cases extends Component {
           {this.props.countries.map(c => {
             return <div
               key={c.CountryCode}
+              className={styles.countries}
               onClick={() => { this.props.setActiveCountry(c) }}>
               <span>{c.TotalConfirmed}</span>
               <span>{c.Country}</span>
