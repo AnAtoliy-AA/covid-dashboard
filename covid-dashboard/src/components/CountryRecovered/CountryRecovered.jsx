@@ -14,11 +14,11 @@ export default class CountryRecovered extends Component {
             != null
             ? this.props.country.Country
             : `World`} recovered`}</div>
-          <div>{`NewDeaths: ${this.props.country.NewRecovered
+          <div>{`NewRecovered: ${this.props.country.NewRecovered
             != null
             ? this.props.country.NewRecovered
             : this.props.global.NewRecovered}`}</div>
-          <div>{`TotalDeaths: ${this.props.country.TotalRecovered
+          <div>{`TotalRecovered: ${this.props.country.TotalRecovered
             != null ? this.props.country.TotalRecovered
             : this.props.global.TotalRecovered}`}</div>
         </div>

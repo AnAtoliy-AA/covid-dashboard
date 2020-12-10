@@ -14,11 +14,11 @@ export default class CountryLevel extends Component {
             != null
             ? this.props.country.Country
             : `World`} confirmed`}</div>
-          <div>{`NewDeaths: ${this.props.country.NewConfirmed
+          <div>{`NewConfirmed: ${this.props.country.NewConfirmed
             != null
             ? this.props.country.NewConfirmed
             : this.props.global.NewConfirmed}`}</div>
-          <div>{`TotalDeaths: ${this.props.country.TotalConfirmed
+          <div>{`TotalConfirmed: ${this.props.country.TotalConfirmed
             != null
             ? this.props.country.TotalConfirmed
             : this.props.global.TotalConfirmed}`}</div>
