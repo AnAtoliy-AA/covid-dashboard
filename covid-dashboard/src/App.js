@@ -1,7 +1,7 @@
 import './App.css';
 
 import CasesContainer from './components/Cases/CasesContainer';
-import CountryLevel from './components/CountryLevel/CountryLevel';
+import CountryLevelContainer from './components/CountryLevel/CountryLevelContainer';
 import CovidGraph from './components/CovidGraph/CovidGraph';
 import CovidMap from './components/CovidMap/CovidMap';
 import GlobalCases from './components/GlobalCases/GlobalCases';
@@ -18,7 +18,7 @@ function App() {
         <CasesContainer />
         <CovidMap />
         <GlobalDeaths />
-        <CountryLevel />
+        <CountryLevelContainer />
         <CovidGraph />
       </div>
     </div>
