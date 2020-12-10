@@ -5,7 +5,9 @@ import styles from './Header.module.css';
 export default class Header extends Component {
     render() {
         return(
-         <div className={styles.header}>HEADER</div>
+         <div className={styles.header}>HEADER
+         <div>{console.log(this.props)}</div>
+         </div>
         )
       }
 }

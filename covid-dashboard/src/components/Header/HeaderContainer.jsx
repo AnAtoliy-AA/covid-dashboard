@@ -1,12 +1,10 @@
-import CountryLevel from './CountryLevel'
+import Header from './Header'
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
     return {
         global: state.cases.global,
         country: state.cases.country,
-        population: state.cases.population,
-        flag: state.cases.flag,
     }
 }
 
@@ -15,4 +13,4 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CountryLevel);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

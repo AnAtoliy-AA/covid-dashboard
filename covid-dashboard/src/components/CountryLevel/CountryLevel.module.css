@@ -2,3 +2,7 @@
     grid-area: e;
     border: solid 2px red;
 }
+
+.flag {
+    width: 100px;
+}

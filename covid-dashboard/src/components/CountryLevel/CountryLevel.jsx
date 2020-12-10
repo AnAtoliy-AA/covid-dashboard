@@ -21,6 +21,11 @@ export default class CountryLevel extends Component {
             != null
             ? this.props.country.TotalConfirmed
             : this.props.global.TotalConfirmed}`}</div>
+          <div>{`${this.props.population
+            != null
+            ? `Population: ${this.props.population}`
+            : ``}`}</div>
+          <img className={styles.flag} src={this.props.flag != null ? this.props.flag : ''} alt=""/>
         </div>
       </div>
     )

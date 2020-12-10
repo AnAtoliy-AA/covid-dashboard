@@ -7,13 +7,13 @@ import CovidGraph from './components/CovidGraph/CovidGraph';
 import CovidMap from './components/CovidMap/CovidMap';
 import GlobalCasesContainer from './components/GlobalCases/GlobalCasesContainer';
 import GlobalDeathsContainer from './components/GlobalDeaths/GlobalDeathsContainer';
-import Header from './components/Header/Header';
+import HeaderContainer from './components/Header/HeaderContainer';
 import React from 'react';
 
 function App() {
   return (
     <div className='app-wrapper'>
-      <Header />
+      <HeaderContainer />
       <div className='app-wrapper__content'>
         <GlobalCasesContainer />
         <CasesContainer />

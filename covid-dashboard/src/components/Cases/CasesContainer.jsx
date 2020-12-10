@@ -1,4 +1,4 @@
-import { setActiveCountryActionCreator, setCountriesDataActionCreator, setGlobalDataActionCreator } from '../../redux/cases-reducer';
+import { setActiveCountryActionCreator, setCountriesDataActionCreator, setFlagUrlActionCreator, setGlobalDataActionCreator, setPopulationActionCreator } from '../../redux/cases-reducer';
 
 import Cases from './Cases';
 import { connect } from 'react-redux';
@@ -8,6 +8,8 @@ let mapStateToProps = (state) => {
         countries: state.cases.countries,
         country: state.cases.country,
         global: state.cases.global,
+        population: state.cases.population,
+        flag: state.cases.flag,
     }
 }
 
@@ -22,6 +24,12 @@ let mapDispatchToProps = (dispatch) => {
         setActiveCountry: (country) => {
             dispatch(setActiveCountryActionCreator(country))
         },
+        setPopulation: (population) => {
+            dispatch(setPopulationActionCreator(population))
+        },
+        setFlagUrl: (flag) => {
+            dispatch(setFlagUrlActionCreator(flag))
+        }
     }
 }
 
