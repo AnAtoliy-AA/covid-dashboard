@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import styles from './GlobalDeaths.module.css';
+import styles from './GlobalDeaths.module.scss';
 
 export default class GlobalDeaths extends Component {
   render() {

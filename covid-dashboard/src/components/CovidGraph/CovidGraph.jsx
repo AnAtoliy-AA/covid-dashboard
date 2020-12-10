@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import styles from './CovidGraph.module.css';
+import styles from './CovidGraph.module.scss';
 
 export default class CovidGraph extends Component {
     render() {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import styles from './CountryRecovered.module.css';
+import styles from './CountryRecovered.module.scss';
 
 export default class CountryRecovered extends Component {
 

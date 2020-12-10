@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import styles from './CountryLevel.module.css';
+import styles from './CountryLevel.module.scss';
 
 export default class CountryLevel extends Component {
 

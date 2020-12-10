@@ -2,7 +2,7 @@ import * as axios from 'axios';
 
 import React, { Component } from 'react';
 
-import styles from './Cases.module.css';
+import styles from './Cases.module.scss';
 
 export default class Cases extends Component {
   componentDidMount() {

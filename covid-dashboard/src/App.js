@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 
 import CasesContainer from './components/Cases/CasesContainer';
 import CountryLevelContainer from './components/CountryLevel/CountryLevelContainer';

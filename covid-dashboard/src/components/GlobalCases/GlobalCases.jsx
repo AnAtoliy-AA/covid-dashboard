@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import styles from './GlobalCases.module.css';
+import styles from './GlobalCases.module.scss';
 
 export default class GlobalCases extends Component {
   render() {
