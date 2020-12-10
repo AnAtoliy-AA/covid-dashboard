@@ -16,14 +16,12 @@ export default class Cases extends Component {
   onCountryChanged(activeCountry) {
     this.props.setActiveCountry(activeCountry);
     axios.get(`https://restcountries.eu/rest/v2/name/${activeCountry}?fullText=true`)
-    .then(response => {
-      console.log('Response',response.data[0].population);
-      console.log('Response2',response.data[0].flag);
+      .then(response => {
         this.props.setPopulation(response.data[0].population);
         this.props.setFlagUrl(response.data[0].flag);
 
-    });
-}
+      });
+  }
 
   render() {
     return (
