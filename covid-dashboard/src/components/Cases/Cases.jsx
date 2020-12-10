@@ -15,7 +15,7 @@ export default class Cases extends Component {
 
   onCountryChanged(activeCountry) {
     this.props.setActiveCountry(activeCountry);
-    axios.get(`https://restcountries.eu/rest/v2/name/${activeCountry}?fullText=true`)
+    axios.get(`https://restcountries.eu/rest/v2/name/${activeCountry.Country}?fullText=true`)
       .then(response => {
         this.props.setPopulation(response.data[0].population);
         this.props.setFlagUrl(response.data[0].flag);
@@ -31,7 +31,7 @@ export default class Cases extends Component {
             return <div
               key={c.CountryCode}
               className={styles.countries}
-              onClick={() => { this.onCountryChanged(c.Country) }}>
+              onClick={() => { this.onCountryChanged(c) }}>
               <span>{c.TotalConfirmed}</span>
               <span>{c.Country}</span>
             </div>

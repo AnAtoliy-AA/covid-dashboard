@@ -9,15 +9,11 @@ export default class CountryLevel extends Component {
     return (
       <div className={styles.countryLevel}>
         <div>
-          {/* TODO */}
           <div>{`${this.props.country.Country
             != null
             ? this.props.country.Country
             : `World`} confirmed`}</div>
-          <div>{`NewConfirmed: ${this.props.country.NewConfirmed
-            != null
-            ? this.props.country.NewConfirmed
-            : this.props.global.NewConfirmed}`}</div>
+          <div>{`NewConfirmed: ${this.props.country.NewConfirmed != null ? this.props.country.NewConfirmed : this.props.global.NewConfirmed}`}</div>
           <div>{`TotalConfirmed: ${this.props.country.TotalConfirmed
             != null
             ? this.props.country.TotalConfirmed
@@ -26,7 +22,7 @@ export default class CountryLevel extends Component {
             != null
             ? `Population: ${this.props.population}`
             : ``}`}</div>
-          <img className={styles.flag} src={this.props.flag != null ? this.props.flag : ''} alt=""/>
+          <img className={styles.flag} src={this.props.flag != null ? this.props.flag : ''} alt="" />
         </div>
       </div>
     )
