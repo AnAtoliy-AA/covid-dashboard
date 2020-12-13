@@ -36,7 +36,7 @@ const countryListReducer = (state = initialState, action) => {
 }
 
 
-export const setCountriesDataActionCreator = (countriesList) => ({ type: ACTION_CONST.SET_COUNTRIES, countriesList });
+export const setCountriesDataActionCreator = (countryList) => ({ type: ACTION_CONST.SET_COUNTRIES, countryList });
 export const setActiveCountryActionCreator = (activeCountry) => ({ type: ACTION_CONST.SET_ACTIVE_COUNTRY, activeCountry });
 export const setGlobalDataActionCreator = (worldWideData) => ({ type: ACTION_CONST.SET_GLOBAL, worldWideData });
 export const setPopulationActionCreator = (countryPopulation) => ({ type: ACTION_CONST.SET_POPULATION, countryPopulation });

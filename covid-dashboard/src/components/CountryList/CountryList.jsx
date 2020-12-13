@@ -24,7 +24,6 @@ export default class CountryList extends Component {
   }
 
   render() {
-    // console.log('zzz', this.props);
     return (
       <div className={styles.countryList}>
         <div>
