@@ -1,12 +1,10 @@
 import './App.scss';
 
 import CasesContainer from './components/Cases/CasesContainer';
-import CountryLevelContainer from './components/CountryLevel/CountryLevelContainer';
-import CountryRecoveredContainer from './components/CountryRecovered/CountryRecoveredContainer';
 import CovidGraph from './components/CovidGraph/CovidGraph';
 import CovidMap from './components/CovidMap/CovidMap';
+import CovidTable from './components/CovidTable/CovidTable';
 import GlobalCasesContainer from './components/GlobalCases/GlobalCasesContainer';
-import GlobalDeathsContainer from './components/GlobalDeaths/GlobalDeathsContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import React from 'react';
 
@@ -17,10 +15,8 @@ function App() {
       <div className='app-wrapper__content'>
         <GlobalCasesContainer />
         <CasesContainer />
+        <CovidTable />
         <CovidMap />
-        <GlobalDeathsContainer />
-        <CountryRecoveredContainer/>
-        <CountryLevelContainer />
         <CovidGraph />
       </div>
     </div>

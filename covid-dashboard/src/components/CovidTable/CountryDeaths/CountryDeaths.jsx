@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import styles from './GlobalDeaths.module.scss';
+import styles from './CountryDeaths.module.scss';
 
-export default class GlobalDeaths extends Component {
+export default class CountryDeaths extends Component {
   render() {
     return (
-      <div className={styles.globalDeaths}>
+      <div className={styles.countryDeaths}>
         <div>{`${this.props.country.Country
           != null
           ? this.props.country.Country : `World`} deaths`}</div>

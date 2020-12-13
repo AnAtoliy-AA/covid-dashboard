@@ -1,4 +1,4 @@
-import GlobalDeaths from './GlobalDeaths';
+import CovidTable from './CovidTable';
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
@@ -14,4 +14,4 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GlobalDeaths);
+export default connect(mapStateToProps, mapDispatchToProps)(CovidTable);
