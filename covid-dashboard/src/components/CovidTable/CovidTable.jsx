@@ -10,6 +10,11 @@ const WORLD_WIDE_NUMBERS = {
   POPULATION_KOEFICIENT: 100000,
 }
 
+const POPULATION_COUNT_TYPE = {
+  ABSOLUTE_TYPE: 'absolute',
+  RELATIVE_TYPE: 'relative',
+}
+
 export default class CovidTable extends Component {
 
   // componentDidMount(){
@@ -20,7 +25,7 @@ export default class CovidTable extends Component {
   onPopulationValueChanged(value) {
     this.props.setPopulationTypeValue(value);
     const newWorldWideData = { ...this.props.worldWideData };
-    if (value === 'relative') {
+    if (value === POPULATION_COUNT_TYPE.RELATIVE_TYPE) {
       for (let key in newWorldWideData) {
         newWorldWideData[key] = Math.floor(newWorldWideData[key]
           / WORLD_WIDE_NUMBERS.WORLD_WIDE_POPULATION
@@ -42,9 +47,9 @@ export default class CovidTable extends Component {
         <CountryDeathsContainer />
         <CountryRecoveredContainer />
         <CountryLevelContainer />
-        <button onClick={() => { this.onPopulationValueChanged('absolute') }}>Absolute</button>
+        <button onClick={() => { this.onPopulationValueChanged(POPULATION_COUNT_TYPE.ABSOLUTE_TYPE) }}>Absolute</button>
         <button
-          onClick={() => { this.onPopulationValueChanged('relative') }}>By 100k</button>
+          onClick={() => { this.onPopulationValueChanged(POPULATION_COUNT_TYPE.RELATIVE_TYPE) }}>By 100k</button>
       </div>
     )
   }
