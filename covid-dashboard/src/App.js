@@ -3,7 +3,7 @@ import './App.scss';
 import CasesContainer from './components/Cases/CasesContainer';
 import CovidGraph from './components/CovidGraph/CovidGraph';
 import CovidMap from './components/CovidMap/CovidMap';
-import CovidTable from './components/CovidTable/CovidTable';
+import CovidTableContainer from './components/CovidTable/CovidTableContainer';
 import GlobalCasesContainer from './components/GlobalCases/GlobalCasesContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import React from 'react';
@@ -15,7 +15,7 @@ function App() {
       <div className='app-wrapper__content'>
         <GlobalCasesContainer />
         <CasesContainer />
-        <CovidTable />
+        <CovidTableContainer />
         <CovidMap />
         <CovidGraph />
       </div>

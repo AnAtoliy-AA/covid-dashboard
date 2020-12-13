@@ -10,6 +10,7 @@ let mapStateToProps = (state) => {
         global: state.cases.global,
         population: state.cases.population,
         flag: state.cases.flag,
+        value: state.table.value,
     }
 }
 

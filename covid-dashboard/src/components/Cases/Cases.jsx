@@ -24,6 +24,7 @@ export default class Cases extends Component {
   }
 
   render() {
+    console.log('zzz', this.props);
     return (
       <div className={styles.cases}>
         <div>
