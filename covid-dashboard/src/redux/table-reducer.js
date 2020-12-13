@@ -2,8 +2,8 @@ const ACTION_CONST = {
     // SET_ABSOLUTE_VALUE: ' SET_ABSOLUTE_VALUE',
     // SET_RELATIVE_VALUE: 'SET_RELATIVE_VALUE',
 SET_POPULATION_TYPE_VALUE: 'SET_POPULATION_TYPE_VALUE',
-SET_ABSOLUTE_GLOBAL_DATA: 'SET_ABSOLUTE_GLOBAL_DATA',
-SET_RELATIVE_GLOBAL_DATA: 'SET_RELATIVE_GLOBAL_DATA',
+SET_ABSOLUTE_WORLD_WIDE_DATA: 'SET_ABSOLUTE_WORLD_WIDE_DATA',
+SET_RELATIVE_WORLD_WIDE_DATA: 'SET_RELATIVE_WORLD_WIDE_DATA',
 }
 
 let initialState = {
@@ -24,10 +24,10 @@ const tableReducer = (state = initialState, action) => {
         case ACTION_CONST.SET_POPULATION_TYPE_VALUE: {
             return { ...state, populationValueType: action.populationValueType }
         }
-        case ACTION_CONST.SET_RELATIVE_GLOBAL_DATA: {
+        case ACTION_CONST.SET_RELATIVE_WORLD_WIDE_DATA: {
             return { ...state, worldWideData: action.worldWideData }
         }
-        case ACTION_CONST.SET_ABSOLUTE_GLOBAL_DATA: {
+        case ACTION_CONST.SET_ABSOLUTE_WORLD_WIDE_DATA: {
             return { ...state, worldWideData: action.worldWideData}
         }
     
@@ -39,7 +39,7 @@ const tableReducer = (state = initialState, action) => {
 export const setPopulationTypeValueActionCreator = (populationValueType) => ({type: ACTION_CONST.SET_POPULATION_TYPE_VALUE, populationValueType});
 export const setAbsoluteDataActionCreator = (populationValueType) => ({ type: ACTION_CONST.SET_ABSOLUTE_VALUE, populationValueType });
 export const setCountriesRelativeDataActionCreator = (countryList) => ({ type: ACTION_CONST.SET_RELATIVE_CO, countryList });
-export const setGlobalAbsoluteDataActionCreator = (worldWideData) => ({ type: ACTION_CONST.SET_ABSOLUTE_GLOBAL_DATA, worldWideData });
-export const setGlobalRelativeDataActionCreator = (worldWideData) => ({ type: ACTION_CONST.SET_RELATIVE_GLOBAL_DATA, worldWideData });
+export const setGlobalAbsoluteDataActionCreator = (worldWideData) => ({ type: ACTION_CONST.SET_ABSOLUTE_WORLD_WIDE_DATA, worldWideData });
+export const setGlobalRelativeDataActionCreator = (worldWideData) => ({ type: ACTION_CONST.SET_RELATIVE_WORLD_WIDE_DATA, worldWideData });
 
 export default tableReducer;

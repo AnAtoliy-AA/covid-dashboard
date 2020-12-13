@@ -10,7 +10,7 @@ export default class CountryList extends Component {
       .then(response => {
         this.props.setGlobalData(response.data.Global);
         this.props.setCountriesData(response.data.Countries);
-        // this.props.setCovidTableData(response.data.Global);
+        this.props.setCovidTableWorldWideData(response.data.Global);
       });
   }
 
