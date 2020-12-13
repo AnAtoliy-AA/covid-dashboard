@@ -7,10 +7,10 @@ SET_RELATIVE_GLOBAL_DATA: 'SET_RELATIVE_GLOBAL_DATA',
 }
 
 let initialState = {
-    countries: [],
-    country: '',
-    global: '',
-    value: 'absolute',
+    countryList: [],
+    activeCountry: '',
+    worldWideData: '',
+    populationValueType: 'absolute',
 }
 
 const tableReducer = (state = initialState, action) => {
@@ -22,13 +22,13 @@ const tableReducer = (state = initialState, action) => {
         //     return { ...state, value: action.value }
         // }
         case ACTION_CONST.SET_POPULATION_TYPE_VALUE: {
-            return { ...state, value: action.value }
+            return { ...state, populationValueType: action.populationValueType }
         }
         case ACTION_CONST.SET_RELATIVE_GLOBAL_DATA: {
-            return { ...state, global: action.global }
+            return { ...state, worldWideData: action.worldWideData }
         }
         case ACTION_CONST.SET_ABSOLUTE_GLOBAL_DATA: {
-            return { ...state, global: action.global}
+            return { ...state, worldWideData: action.worldWideData}
         }
     
         default:
@@ -36,10 +36,10 @@ const tableReducer = (state = initialState, action) => {
     }
 }
 
-export const setPopulationTypeValueActionCreator = (value) => ({type: ACTION_CONST.SET_POPULATION_TYPE_VALUE, value});
-export const setAbsoluteDataActionCreator = (value) => ({ type: ACTION_CONST.SET_ABSOLUTE_VALUE, value });
-export const setCountriesRelativeDataActionCreator = (countries) => ({ type: ACTION_CONST.SET_RELATIVE_CO, countries });
-export const setGlobalAbsoluteDataActionCreator = (global) => ({ type: ACTION_CONST.SET_ABSOLUTE_GLOBAL_DATA, global });
-export const setGlobalRelativeDataActionCreator = (global) => ({ type: ACTION_CONST.SET_RELATIVE_GLOBAL_DATA, global });
+export const setPopulationTypeValueActionCreator = (populationValueType) => ({type: ACTION_CONST.SET_POPULATION_TYPE_VALUE, populationValueType});
+export const setAbsoluteDataActionCreator = (populationValueType) => ({ type: ACTION_CONST.SET_ABSOLUTE_VALUE, populationValueType });
+export const setCountriesRelativeDataActionCreator = (countryList) => ({ type: ACTION_CONST.SET_RELATIVE_CO, countryList });
+export const setGlobalAbsoluteDataActionCreator = (worldWideData) => ({ type: ACTION_CONST.SET_ABSOLUTE_GLOBAL_DATA, worldWideData });
+export const setGlobalRelativeDataActionCreator = (worldWideData) => ({ type: ACTION_CONST.SET_RELATIVE_GLOBAL_DATA, worldWideData });
 
 export default tableReducer;

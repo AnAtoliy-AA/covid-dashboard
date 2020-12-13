@@ -9,20 +9,23 @@ export default class CountryLevel extends Component {
     return (
       <div className={styles.countryLevel}>
         <div>
-          <div>{`${this.props.country.Country
+          <div>{`${this.props.activeCountry.Country
             != null
-            ? this.props.country.Country
+            ? this.props.activeCountry.Country
             : `World`} confirmed`}</div>
-          <div>{`NewConfirmed: ${this.props.country.NewConfirmed != null ? this.props.country.NewConfirmed : this.props.global.NewConfirmed}`}</div>
-          <div>{`TotalConfirmed: ${this.props.country.TotalConfirmed
+          <div>{`NewConfirmed: ${this.props.activeCountry.NewConfirmed
             != null
-            ? this.props.country.TotalConfirmed
-            : this.props.global.TotalConfirmed}`}</div>
-          <div>{`${this.props.population
+            ? this.props.activeCountry.NewConfirmed
+            : this.props.worldWideData.NewConfirmed}`}</div>
+          <div>{`TotalConfirmed: ${this.props.activeCountry.TotalConfirmed
             != null
-            ? `Population: ${this.props.population}`
+            ? this.props.activeCountry.TotalConfirmed
+            : this.props.worldWideData.TotalConfirmed}`}</div>
+          <div>{`${this.props.countryPopulation
+            != null
+            ? `Population: ${this.props.countryPopulation}`
             : ``}`}</div>
-          <img className={styles.flag} src={this.props.flag != null ? this.props.flag : ''} alt="" />
+          <img className={styles.flag} src={this.props.countryFlag != null ? this.props.countryFlag : ''} alt="" />
         </div>
       </div>
     )

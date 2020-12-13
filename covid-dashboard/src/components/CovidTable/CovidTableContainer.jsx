@@ -5,27 +5,27 @@ import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
     return {
-        global: state.cases.global,
-        countries: state.cases.countries,
-        value: state.table.value,
+        worldWideData: state.countryList.worldWideData,
+        countryList: state.countryList.countryList,
+        populationValueType: state.covidTable.populationValueType,
     }
 }
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        setPopulationTypeValue: (value) => {
-            dispatch(setPopulationTypeValueActionCreator(value))
+        setPopulationTypeValue: (populationValueType) => {
+            dispatch(setPopulationTypeValueActionCreator(populationValueType))
         },
         //     dispatch(setCountriesAbsoluteDataActionCreator(countries))
         // },
-        setCountriesRelativeData: (countries) => {
-            dispatch(setCountriesRelativeDataActionCreator(countries))
+        setCountriesRelativeData: (countryList) => {
+            dispatch(setCountriesRelativeDataActionCreator(countryList))
         },
-        setGlobalAbsoluteData: (global) => {
-            dispatch(setGlobalAbsoluteDataActionCreator(global))
+        setGlobalAbsoluteData: (worldWideData) => {
+            dispatch(setGlobalAbsoluteDataActionCreator(worldWideData))
         },
-        setGlobalRelativeData: (global) => {
-            dispatch(setGlobalRelativeDataActionCreator(global))
+        setGlobalRelativeData: (worldWideData) => {
+            dispatch(setGlobalRelativeDataActionCreator(worldWideData))
         },
 
     }

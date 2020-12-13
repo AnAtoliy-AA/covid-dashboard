@@ -10,17 +10,17 @@ export default class CountryRecovered extends Component {
       <div className={styles.countryRecovered}>
 
         <div>
-          <div>{`${this.props.country.Country
+          <div>{`${this.props.activeCountry.Country
             != null
-            ? this.props.country.Country
+            ? this.props.activeCountry.Country
             : `World`} recovered`}</div>
-          <div>{`NewRecovered: ${this.props.country.NewRecovered
+          <div>{`NewRecovered: ${this.props.activeCountry.NewRecovered
             != null
-            ? this.props.country.NewRecovered
-            : this.props.global.NewRecovered}`}</div>
-          <div>{`TotalRecovered: ${this.props.country.TotalRecovered
-            != null ? this.props.country.TotalRecovered
-            : this.props.global.TotalRecovered}`}</div>
+            ? this.props.activeCountry.NewRecovered
+            : this.props.worldWideData.NewRecovered}`}</div>
+          <div>{`TotalRecovered: ${this.props.activeCountry.TotalRecovered
+            != null ? this.props.activeCountry.TotalRecovered
+            : this.props.worldWideData.TotalRecovered}`}</div>
         </div>
       </div>
     )

@@ -2,14 +2,15 @@ import * as axios from 'axios';
 
 import React, { Component } from 'react';
 
-import styles from './Cases.module.scss';
+import styles from './CountryList.module.scss';
 
-export default class Cases extends Component {
+export default class CountryList extends Component {
   componentDidMount() {
     axios.get(`https://api.covid19api.com/summary`)
       .then(response => {
         this.props.setGlobalData(response.data.Global);
         this.props.setCountriesData(response.data.Countries);
+        // this.props.setCovidTableData(response.data.Global);
       });
   }
 
@@ -19,16 +20,15 @@ export default class Cases extends Component {
       .then(response => {
         this.props.setPopulation(response.data[0].population);
         this.props.setFlagUrl(response.data[0].flag);
-
       });
   }
 
   render() {
-    console.log('zzz', this.props);
+    // console.log('zzz', this.props);
     return (
-      <div className={styles.cases}>
+      <div className={styles.countryList}>
         <div>
-          {this.props.countries.map(c => {
+          {this.props.countryList.map(c => {
             return <div
               key={c.CountryCode}
               className={styles.countries}
@@ -38,7 +38,6 @@ export default class Cases extends Component {
             </div>
           })}
         </div>
-
       </div>
     )
   }

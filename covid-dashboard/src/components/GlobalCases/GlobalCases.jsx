@@ -7,7 +7,7 @@ export default class GlobalCases extends Component {
     return (
       <div className={styles.globalCases}>GlobalCases
         <div>
-          {this.props.global.TotalConfirmed}
+          {this.props.worldWideData.TotalConfirmed}
         </div>
       </div>
     )

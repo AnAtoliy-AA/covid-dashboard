@@ -6,17 +6,17 @@ export default class CountryDeaths extends Component {
   render() {
     return (
       <div className={styles.countryDeaths}>
-        <div>{`${this.props.country.Country
+        <div>{`${this.props.activeCountry.Country
           != null
-          ? this.props.country.Country : `World`} deaths`}</div>
-        <div>{`NewDeaths: ${this.props.country.NewDeaths
+          ? this.props.activeCountry.Country : `World`} deaths`}</div>
+        <div>{`NewDeaths: ${this.props.activeCountry.NewDeaths
           != null
-          ? this.props.country.NewDeaths
-          : this.props.global.NewDeaths}`}</div>
-        <div>{`TotalDeaths: ${this.props.country.TotalDeaths
+          ? this.props.activeCountry.NewDeaths
+          : this.props.worldWideData.NewDeaths}`}</div>
+        <div>{`TotalDeaths: ${this.props.activeCountry.TotalDeaths
           != null
-          ? this.props.country.TotalDeaths
-          : this.props.global.TotalDeaths}`}</div>
+          ? this.props.activeCountry.TotalDeaths
+          : this.props.worldWideData.TotalDeaths}`}</div>
       </div>
     )
   }

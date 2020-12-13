@@ -1,6 +1,6 @@
 import './App.scss';
 
-import CasesContainer from './components/Cases/CasesContainer';
+import CountryListContainer from './components/CountryList/CountryListContainer';
 import CovidGraph from './components/CovidGraph/CovidGraph';
 import CovidMap from './components/CovidMap/CovidMap';
 import CovidTableContainer from './components/CovidTable/CovidTableContainer';
@@ -14,7 +14,7 @@ function App() {
       <HeaderContainer />
       <div className='app-wrapper__content'>
         <GlobalCasesContainer />
-        <CasesContainer />
+        <CountryListContainer />
         <CovidTableContainer />
         <CovidMap />
         <CovidGraph />
