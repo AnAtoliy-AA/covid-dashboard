@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
     return {
-        worldWideData: state.covidTable.worldWideData,
+        worldWideData: state.countryList.worldWideData,
         activeCountry: state.countryList.activeCountry,
         countryPopulation: state.countryList.countryPopulation,
         countryFlag: state.countryList.countryFlag,
+        covidTableWorldWideData: state.countryList.covidTableWorldWideData,
     }
 }
 

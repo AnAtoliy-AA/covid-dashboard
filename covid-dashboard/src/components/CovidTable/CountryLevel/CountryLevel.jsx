@@ -16,11 +16,11 @@ export default class CountryLevel extends Component {
           <div>{`NewConfirmed: ${this.props.activeCountry.NewConfirmed
             != null
             ? this.props.activeCountry.NewConfirmed
-            : this.props.worldWideData.NewConfirmed}`}</div>
+            : this.props.covidTableWorldWideData.NewConfirmed}`}</div>
           <div>{`TotalConfirmed: ${this.props.activeCountry.TotalConfirmed
             != null
             ? this.props.activeCountry.TotalConfirmed
-            : this.props.worldWideData.TotalConfirmed}`}</div>
+            : this.props.covidTableWorldWideData.TotalConfirmed}`}</div>
           <div>{`${this.props.countryPopulation
             != null
             ? `Population: ${this.props.countryPopulation}`

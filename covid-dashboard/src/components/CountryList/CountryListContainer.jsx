@@ -10,8 +10,8 @@ let mapStateToProps = (state) => {
         worldWideData: state.countryList.worldWideData,
         countryPopulation: state.countryList.countryPopulation,
         countryFlag: state.countryList.countryFlag,
-        covidTableWorldWideData: state.covidTable.worldWideData,
-        populationValueType: state.covidTable.populationValueType,
+        covidTableWorldWideData: state.countryList.worldWideData,
+        populationValueType: state.countryList.populationValueType,
     }
 }
 

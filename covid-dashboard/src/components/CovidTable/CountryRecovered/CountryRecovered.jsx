@@ -17,10 +17,10 @@ export default class CountryRecovered extends Component {
           <div>{`NewRecovered: ${this.props.activeCountry.NewRecovered
             != null
             ? this.props.activeCountry.NewRecovered
-            : this.props.worldWideData.NewRecovered}`}</div>
+            : this.props.covidTableWorldWideData.NewRecovered}`}</div>
           <div>{`TotalRecovered: ${this.props.activeCountry.TotalRecovered
             != null ? this.props.activeCountry.TotalRecovered
-            : this.props.worldWideData.TotalRecovered}`}</div>
+            : this.props.covidTableWorldWideData.TotalRecovered}`}</div>
         </div>
       </div>
     )

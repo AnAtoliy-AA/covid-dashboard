@@ -12,11 +12,11 @@ export default class CountryDeaths extends Component {
         <div>{`NewDeaths: ${this.props.activeCountry.NewDeaths
           != null
           ? this.props.activeCountry.NewDeaths
-          : this.props.worldWideData.NewDeaths}`}</div>
+          : this.props.covidTableWorldWideData.NewDeaths}`}</div>
         <div>{`TotalDeaths: ${this.props.activeCountry.TotalDeaths
           != null
           ? this.props.activeCountry.TotalDeaths
-          : this.props.worldWideData.TotalDeaths}`}</div>
+          : this.props.covidTableWorldWideData.TotalDeaths}`}</div>
       </div>
     )
   }
