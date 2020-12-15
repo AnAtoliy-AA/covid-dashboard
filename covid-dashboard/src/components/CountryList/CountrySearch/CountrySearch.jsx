@@ -10,6 +10,11 @@ export default class CountrySearch extends Component {
     this.setState({ searchTerm: country });
   }
 
+  onCountryChanged(activeCountry) {
+    this.props.setActiveCountry(activeCountry);
+    this.setState({ searchTerm: '' });
+  }
+
   render() {
     return (
       <div className={styles.countrySearch}>
@@ -31,7 +36,11 @@ export default class CountrySearch extends Component {
             {this.props.countryList.map((country) => {
               if (country.Slug.includes(this.state.searchTerm.toLowerCase())) {
                 return (
-                  <li key={country.CountryCode} className={styles.countryItem}>
+                  <li
+                    key={country.CountryCode}
+                    className={styles.countryItem}
+                    onClick={() => this.onCountryChanged(country)}
+                  >
                     <img
                       src={`https://www.countryflags.io/${country.CountryCode}/shiny/64.png`}
                       className={styles.countryItem_flag}
