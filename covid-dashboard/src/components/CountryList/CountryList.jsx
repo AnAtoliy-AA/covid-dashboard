@@ -36,8 +36,6 @@ export default class CountryList extends Component {
           const newActiveCountry = this.convertActiveCountryToRelativePopulationType(
             activeCountry
           );
-          console.log('NEWACTIVECOUNTRY', newActiveCountry);
-          // this.props.setActiveCountry(this.convertActiveCountryToRelativePopulationType(activeCountry));
         } else {
           this.props.setActiveCountry(activeCountry);
         }

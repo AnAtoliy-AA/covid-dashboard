@@ -17,11 +17,6 @@ const POPULATION_COUNT_TYPE = {
 
 export default class CovidTable extends Component {
 
-  // componentDidMount(){
-  //   const newGlobal = { ...this.props.global };
-  //   this.props.setGlobalRelativeData(newGlobal);
-  // }
-
   onPopulationValueChanged(value) {
     this.props.setPopulationTypeValue(value);
     const newWorldWideData = { ...this.props.worldWideData };
@@ -37,10 +32,6 @@ export default class CovidTable extends Component {
     } else this.props.setGlobalAbsoluteData(newWorldWideData);
   }
 
-  // onRelativeValueChanged() {
-
-  //   console.log('relative');
-  //     }
   render() {
     return (
       <div className={styles.covidTable}>CovidTable

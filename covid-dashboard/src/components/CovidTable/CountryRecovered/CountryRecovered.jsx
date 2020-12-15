@@ -4,7 +4,6 @@ import styles from './CountryRecovered.module.scss';
 
 export default class CountryRecovered extends Component {
 
-
   render() {
     return (
       <div className={styles.countryRecovered}>

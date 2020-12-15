@@ -4,7 +4,6 @@ import styles from './CountryLevel.module.scss';
 
 export default class CountryLevel extends Component {
 
-
   render() {
     return (
       <div className={styles.countryLevel}>
