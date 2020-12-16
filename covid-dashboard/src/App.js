@@ -6,7 +6,6 @@ import CovidMap from './components/CovidMap/CovidMap';
 import CovidTableContainer from './components/CovidTable/CovidTableContainer';
 import GlobalCasesContainer from './components/GlobalCases/GlobalCasesContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
-import FooterContainer from './components/Footer/FooterContainer';
 import React from 'react';
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
         <CovidMap />
         <CovidGraph />
       </div>
-      <FooterContainer />
     </div>
   );
 }
