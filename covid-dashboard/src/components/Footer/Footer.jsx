@@ -18,7 +18,9 @@ export default class Footer extends Component {
             </ul> 
         
         <div>
-          <img src={logo} className={styles.logo} alt="logo" />
+          <a href="https://rs.school/js/">
+            <img src={logo} className={styles.logo} alt="logo" />
+          </a>
           <div>2020</div>
         </div>
         
