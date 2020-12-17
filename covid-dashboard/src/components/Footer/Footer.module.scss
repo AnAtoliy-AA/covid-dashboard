@@ -1,0 +1,12 @@
+.footer {
+    height: 10vh;
+    border:solid 2px red;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo {
+    height: 20px;
+    pointer-events: none;
+  }
