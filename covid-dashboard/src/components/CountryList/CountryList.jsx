@@ -86,7 +86,11 @@ export default class CountryList extends Component {
                   this.onCountryChanged(c);
                 }}
               >
-                <span>{c.TotalConfirmed}</span>
+                 <img
+                      src={`https://www.countryflags.io/${c.CountryCode}/shiny/64.png`}
+                      className={styles.countryItem_flag}
+                    />
+                <span className={styles.totalConfirmed}>{c.TotalConfirmed}</span>
                 <span>{c.Country}</span>
               </div>
             );
