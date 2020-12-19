@@ -87,6 +87,7 @@ export default class CountryList extends Component {
                 }}
               >
                  <img
+                      alt="logo"
                       src={`https://www.countryflags.io/${c.CountryCode}/shiny/64.png`}
                       className={styles.countryItem_flag}
                     />
