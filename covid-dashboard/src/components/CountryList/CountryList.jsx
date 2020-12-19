@@ -94,6 +94,7 @@ export default class CountryList extends Component {
                 <span className={styles.totalConfirmed}>{c.TotalConfirmed}</span>
                 <span>{c.Country}</span>
               </div>
+              
             );
           })}
         </div>
