@@ -1,5 +1,5 @@
 .footer {
-    height: 10vh;
+    height: 7vh;
     border:solid 2px red;
     display: flex;
     justify-content: space-around;
@@ -7,6 +7,10 @@
 }
 
 .logo {
-    height: 20px;
+    height: 25px;
     pointer-events: none;
+  }
+
+  li{
+    display: inline;
   }

@@ -43,9 +43,12 @@ export default class CovidTable extends Component {
   //     }
   render() {
     return (
-      <div className={styles.covidTable}>CovidTable
+      <div className={styles.covidTable}>Covid Table
+        <hr />
         <CountryDeathsContainer />
+        <hr />
         <CountryRecoveredContainer />
+        <hr />
         <CountryLevelContainer />
         <button onClick={() => { this.onPopulationValueChanged(POPULATION_COUNT_TYPE.ABSOLUTE_TYPE) }}>Absolute</button>
         <button

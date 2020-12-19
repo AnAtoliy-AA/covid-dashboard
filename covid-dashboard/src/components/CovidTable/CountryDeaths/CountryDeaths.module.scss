@@ -1,4 +1,14 @@
-.countryDeaths {
-    // grid-area: f;
-    border:solid 2px red;
+@import "../../../variable.scss";
+// .countryDeaths {
+//     // grid-area: f;
+//     border:solid 2px red;
+//     // background-color: $bgcolor;
+// }
+
+.deaths{
+    // color:$colorDeath;
+    margin-left: 5px;
+}
+.styleDeaths{
+    display: flex;
 }

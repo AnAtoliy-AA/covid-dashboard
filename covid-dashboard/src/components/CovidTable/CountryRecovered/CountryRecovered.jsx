@@ -12,7 +12,7 @@ export default class CountryRecovered extends Component {
           <div>
             {this.props.activeCountry.Country
             != null
-            ? <div className={styles.styleRecovered}>{this.props.activeCountry.Country} recovered
+            ? <div className={styles.styleRecovered}>{this.props.activeCountry.Country} recovered :
                 <div className={styles.recovered}>{this.props.activeCountry.TotalRecovered}</div>
               </div>
             : <div className={styles.styleRecovered}>World recovered :
