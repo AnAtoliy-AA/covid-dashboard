@@ -79,22 +79,24 @@ export default class CountryList extends Component {
           <CountrySearchContainer />
           {this.props.countryList.map((c) => {
             return (
-              <div
-                key={c.CountryCode}
-                className={styles.countries}
-                onClick={() => {
-                  this.onCountryChanged(c);
-                }}
-              >
-                 <img
-                      alt="logo"
-                      src={`https://www.countryflags.io/${c.CountryCode}/shiny/64.png`}
-                      className={styles.countryItem_flag}
-                    />
-                <span className={styles.totalConfirmed}>{c.TotalConfirmed}</span>
-                <span>{c.Country}</span>
+              <div>
+                 <div
+                  key={c.CountryCode}
+                  className={styles.countries}
+                  onClick={() => {
+                    this.onCountryChanged(c);
+                  }}
+                >
+                  <img
+                        alt="logo"
+                        src={`https://www.countryflags.io/${c.CountryCode}/shiny/64.png`}
+                        className={styles.countryItem_flag}
+                      />
+                  <span className={styles.totalConfirmed}>{c.TotalConfirmed}</span>
+                  <span>{c.Country}</span>
+                </div>
+                <hr />
               </div>
-              
             );
           })}
         </div>
