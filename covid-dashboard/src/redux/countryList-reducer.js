@@ -4,6 +4,7 @@ const ACTION_CONST = {
     SET_GLOBAL: 'SET_GLOBAL',
     SET_ACTIVE_COUNTRY: 'SET_ACTIVE_COUNTRY',
     SET_RELATIVE_ACTIVE_COUNTRY: 'SET_RELATIVE_ACTIVE_COUNTRY',
+    SET_COVID_TABLE_ACTIVE_COUNTRY: 'SET_COVID_TABLE_ACTIVE_COUNTRY',
     SET_FLAG: 'SET_FLAG',
     SET_POPULATION: 'SET_POPULATION',
     SET_COVID_TABLE_WORLD_WIDE_DATA: 'SET_COVID_TABLE_WORLD_WIDE_DATA',
@@ -23,6 +24,17 @@ let initialState = {
         TotalRecovered: 0,
         NewConfirmed: 0,
         TotalConfirmed: 0,
+    },
+    covidTableActiveCountry: {
+        Country: "",
+        CountryCode: "",
+        Slug: "",
+        NewConfirmed: 0,
+        TotalConfirmed: 0,
+        NewDeaths: 0,
+        TotalDeaths: 0,
+        NewRecovered: 0,
+        TotalRecovered: 0,
     }
 }
 
@@ -39,6 +51,9 @@ const countryListReducer = (state = initialState, action) => {
         }
         case ACTION_CONST.SET_RELATIVE_ACTIVE_COUNTRY: {
             return { ...state, relativActiveCountry: action.activeCountry }
+        }
+        case ACTION_CONST.SET_COVID_TABLE_ACTIVE_COUNTRY: {
+            return { ...state, covidTableActiveCountry: action.activeCountry }
         }
         case ACTION_CONST.SET_FLAG: {
             return { ...state, countryFlag: action.countryFlag }
@@ -67,6 +82,7 @@ const countryListReducer = (state = initialState, action) => {
 export const setCountriesDataActionCreator = (countryList) => ({ type: ACTION_CONST.SET_COUNTRIES, countryList });
 export const setActiveCountryActionCreator = (activeCountry) => ({ type: ACTION_CONST.SET_ACTIVE_COUNTRY, activeCountry });
 export const setActiveRelativeCountryActionCreator = (activeCountry) => ({ type: ACTION_CONST.SET_RELATIVE_ACTIVE_COUNTRY, activeCountry });
+export const setCovidTableActiveCountryActionCreator = (activeCountry) => ({ type: ACTION_CONST.SET_COVID_TABLE_ACTIVE_COUNTRY, activeCountry });
 export const setGlobalDataActionCreator = (worldWideData) => ({ type: ACTION_CONST.SET_GLOBAL, worldWideData });
 export const setCovidTableWorldWideDataActionCreator = (covidTableWorldWideData) => ({ type: ACTION_CONST.SET_COVID_TABLE_WORLD_WIDE_DATA, covidTableWorldWideData });
 export const setPopulationActionCreator = (countryPopulation) => ({ type: ACTION_CONST.SET_POPULATION, countryPopulation });
