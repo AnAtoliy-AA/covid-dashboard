@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import styles from './CountrySearch.module.scss';
 
 export default class CountrySearch extends Component {
@@ -44,6 +45,7 @@ export default class CountrySearch extends Component {
                     <img
                       src={`https://www.countryflags.io/${country.CountryCode}/shiny/64.png`}
                       className={styles.countryItem_flag}
+                      alt='flag'
                     />
                     <h3 className={styles.countryItem_name}>
                       {country.Country}
