@@ -1,6 +1,7 @@
 import * as axios from 'axios';
 
 import React, { Component } from 'react';
+
 import CountrySearchContainer from './CountrySearch/CountrySearchContainer';
 import styles from './CountryList.module.scss';
 
@@ -37,7 +38,6 @@ export default class CountryList extends Component {
             activeCountry
           );
           console.log('NEWACTIVECOUNTRY', newActiveCountry);
-          // this.props.setActiveCountry(this.convertActiveCountryToRelativePopulationType(activeCountry));
         } else {
           this.props.setActiveCountry(activeCountry);
         }
