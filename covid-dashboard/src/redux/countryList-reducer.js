@@ -38,7 +38,7 @@ let initialState = {
         NewRecovered: 0,
         TotalRecovered: 0,
     },
-    isCountrySelected: 'false',
+    isCountrySelected: false,
 }
 
 const countryListReducer = (state = initialState, action) => {

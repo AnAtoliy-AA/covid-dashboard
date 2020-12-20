@@ -15,8 +15,8 @@ const POPULATION_COUNT_TYPE = {
 };
 
 const COUNTRY_SELECTED = {
-  TRUE: 'true',
-  FALSE: 'false',
+  TRUE: true,
+  FALSE: false,
 }
 export default class CountryList extends Component {
   componentDidMount() {

@@ -10,7 +10,7 @@ export default class CountryRecovered extends Component {
       <div className={styles.countryRecovered}>
         <div>
           <div>
-            {(this.props.isCountrySelected === 'true')
+            {(this.props.isCountrySelected)
               ? <div className={styles.styleRecovered}>{this.props.activeCountry.Country} recovered :
                 <div className={styles.recovered}>{this.props.activeCountry.TotalRecovered}</div>
               </div>
@@ -20,7 +20,7 @@ export default class CountryRecovered extends Component {
             }
           </div>
           <div className={styles.styleRecovered}>New recovered :
-            {(this.props.isCountrySelected === 'true')
+            {(this.props.isCountrySelected)
               ? <div className={styles.recovered}>
                 {this.props.activeCountry.NewRecovered}
               </div>

@@ -8,7 +8,7 @@ export default class CountryDeaths extends Component {
       <div className={styles.countryDeaths}>
         <div>
           <div>
-            {(this.props.isCountrySelected === 'true')
+            {(this.props.isCountrySelected)
               ? <div className={styles.styleDeaths}>{this.props.activeCountry.Country} deaths :
                 <div className={styles.deaths}>{this.props.activeCountry.TotalDeaths}</div>
               </div>
@@ -18,7 +18,7 @@ export default class CountryDeaths extends Component {
             }
           </div>
           <div className={styles.styleDeaths}>New deaths :
-            {(this.props.isCountrySelected === 'true')
+            {(this.props.isCountrySelected)
               ? <div className={styles.deaths}>
                 {this.props.activeCountry.NewDeaths}
               </div>
