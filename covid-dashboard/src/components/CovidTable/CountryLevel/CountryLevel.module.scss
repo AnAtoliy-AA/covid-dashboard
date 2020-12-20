@@ -1,8 +1,16 @@
-.countryLevel {
-    // grid-area: e;
-    border: solid 2px red;
-}
+@import "../../../variable.scss";
+// .countryLevel {
+//     // grid-area: e;
+//     border: solid 2px red;
+// }
 
+.confirmed{
+    color:$colorCase;
+    margin-left: 5px;
+}
+.styleConfirmed{
+    display: flex;
+}
 .flag {
     width: 100px;
 }

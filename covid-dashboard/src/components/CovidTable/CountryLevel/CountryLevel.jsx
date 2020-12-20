@@ -9,23 +9,40 @@ export default class CountryLevel extends Component {
     return (
       <div className={styles.countryLevel}>
         <div>
-          <div>{`${this.props.activeCountry.Country
+          <div>
+            {this.props.activeCountry.Country
             != null
-            ? this.props.activeCountry.Country
-            : `World`} confirmed`}</div>
-          <div>{`NewConfirmed: ${this.props.activeCountry.NewConfirmed
+            ? <div className={styles.styleConfirmed}>{this.props.activeCountry.Country} confirmed :
+                <div className={styles.confirmed}>{this.props.activeCountry.TotalConfirmed}</div>
+              </div>
+            : <div className={styles.styleConfirmed}>World confirmed :
+                <div className={styles.confirmed}>{this.props.covidTableWorldWideData.TotalConfirmed}</div>
+              </div>
+            } 
+          </div>
+          <div className={styles.styleConfirmed}>New confirmed : 
+            {this.props.activeCountry.NewRecovered
             != null
-            ? this.props.activeCountry.NewConfirmed
-            : this.props.covidTableWorldWideData.NewConfirmed}`}</div>
-          <div>{`TotalConfirmed: ${this.props.activeCountry.TotalConfirmed
+            ? <div className={styles.confirmed}>
+                {this.props.activeCountry.NewConfirmed}
+              </div>
+            : <div className={styles.confirmed}>
+                {this.props.covidTableWorldWideData.NewConfirmed}
+              </div>
+           }
+          </div>
+
+          <div className={styles.styleConfirmed}>
+            {this.props.countryPopulation
             != null
-            ? this.props.activeCountry.TotalConfirmed
-            : this.props.covidTableWorldWideData.TotalConfirmed}`}</div>
-          <div>{`${this.props.countryPopulation
-            != null
-            ? `Population: ${this.props.countryPopulation}`
-            : ``}`}</div>
-          <img className={styles.flag} src={this.props.countryFlag != null ? this.props.countryFlag : ''} alt="" />
+            ? <div className={styles.styleConfirmed}>Population: <div className={styles.confirmed}> {this.props.countryPopulation}
+                  
+              </div>
+              </div>
+            :``
+           }
+           <img className={styles.flag} src={this.props.countryFlag} alt="" />
+          </div>
         </div>
       </div>
     )

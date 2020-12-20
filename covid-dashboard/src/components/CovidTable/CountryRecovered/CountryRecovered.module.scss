@@ -1,4 +1,12 @@
-.countryRecovered {
-    // grid-area: d;
-    border: solid 2px red;
+@import "../../../variable.scss";
+// .countryRecovered {
+//     // grid-area: d;
+//     // border: solid 2px red;
+// }
+.recovered{
+    color:$colorRecover;
+    margin-left: 5px;
+}
+.styleRecovered{
+    display: flex;
 }

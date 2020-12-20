@@ -1,0 +1,16 @@
+.footer {
+    height: 7vh;
+    border:solid 2px red;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo {
+    height: 25px;
+    pointer-events: none;
+  }
+
+  li{
+    display: inline;
+  }

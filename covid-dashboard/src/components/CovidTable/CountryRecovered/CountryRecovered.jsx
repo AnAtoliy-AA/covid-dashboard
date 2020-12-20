@@ -8,19 +8,29 @@ export default class CountryRecovered extends Component {
   render() {
     return (
       <div className={styles.countryRecovered}>
-
         <div>
-          <div>{`${this.props.activeCountry.Country
+          <div>
+            {this.props.activeCountry.Country
             != null
-            ? this.props.activeCountry.Country
-            : `World`} recovered`}</div>
-          <div>{`NewRecovered: ${this.props.activeCountry.NewRecovered
+            ? <div className={styles.styleRecovered}>{this.props.activeCountry.Country} recovered :
+                <div className={styles.recovered}>{this.props.activeCountry.TotalRecovered}</div>
+              </div>
+            : <div className={styles.styleRecovered}>World recovered :
+                <div className={styles.recovered}>{this.props.covidTableWorldWideData.TotalRecovered}</div>
+              </div>
+            } 
+          </div>
+          <div className={styles.styleRecovered}>New recovered : 
+            {this.props.activeCountry.NewRecovered
             != null
-            ? this.props.activeCountry.NewRecovered
-            : this.props.covidTableWorldWideData.NewRecovered}`}</div>
-          <div>{`TotalRecovered: ${this.props.activeCountry.TotalRecovered
-            != null ? this.props.activeCountry.TotalRecovered
-            : this.props.covidTableWorldWideData.TotalRecovered}`}</div>
+            ? <div className={styles.recovered}>
+                {this.props.activeCountry.NewRecovered}
+              </div>
+            : <div className={styles.recovered}>
+                {this.props.covidTableWorldWideData.NewRecovered}
+              </div>
+           }
+          </div>
         </div>
       </div>
     )
