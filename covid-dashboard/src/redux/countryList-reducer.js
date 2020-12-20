@@ -1,3 +1,5 @@
+import { defaultCountryList } from "./countryList"
+import { defaultcountryInfoList } from "./countryInfoList"
 
 const ACTION_CONST = {
     SET_COUNTRIES: 'SET_COUNTRIES',
@@ -17,10 +19,10 @@ const ACTION_CONST = {
 }
 
 let initialState = {
-    countryList: [],
-    countryInfoList: [],
+    countryList: defaultCountryList.Countries,
+    countryInfoList: defaultcountryInfoList,
     activeCountry: '',
-    worldWideData: '',
+    worldWideData: defaultCountryList.Global,
     covidTableWorldWideData: {
         NewDeaths: 0,
         TotalDeaths: 0,
