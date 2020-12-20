@@ -41,7 +41,7 @@ export default class CountryList extends Component {
 
         this.props.setPopulation(activeCountryPopulation);
         this.props.setFlagUrl(activeCountryFlag);
- 
+
         this.props.setActiveCountry(activeCountry);
         this.props.setActiveRelativeCountry(newActiveCountry);
 
@@ -81,7 +81,7 @@ export default class CountryList extends Component {
           <CountrySearchContainer />
           {this.props.countryList.map((c) => {
             return (
-              <div  key={c.CountryCode}>
+              <div key={c.CountryCode}>
                 <div
                   className={styles.countries}
                   onClick={() => {

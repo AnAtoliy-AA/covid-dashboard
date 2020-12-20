@@ -30,10 +30,10 @@ export default class CovidTable extends Component {
           * WORLD_WIDE_NUMBERS.POPULATION_KOEFICIENT);
       }
       this.props.setGlobalRelativeData(newWorldWideData);
-      this.props.setCovidTableActiveCountryData(activeCountry);
+      this.props.setCovidTableActiveCountryData(relativeActiveCountry);
     } else {
       this.props.setGlobalAbsoluteData(newWorldWideData);
-      this.props.setCovidTableActiveCountryData(relativeActiveCountry);
+      this.props.setCovidTableActiveCountryData(activeCountry);
     }
   }
 

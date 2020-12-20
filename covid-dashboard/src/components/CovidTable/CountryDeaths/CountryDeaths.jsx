@@ -9,23 +9,23 @@ export default class CountryDeaths extends Component {
         <div>
           <div>
             {(this.props.isCountrySelected === 'true')
-            ? <div className={styles.styleDeaths}>{this.props.activeCountry.Country} deaths :
+              ? <div className={styles.styleDeaths}>{this.props.activeCountry.Country} deaths :
                 <div className={styles.deaths}>{this.props.activeCountry.TotalDeaths}</div>
               </div>
-            : <div className={styles.styleDeaths}>World deaths :
+              : <div className={styles.styleDeaths}>World deaths :
                 <div className={styles.deaths}>{this.props.covidTableWorldWideData.TotalDeaths}</div>
               </div>
-            } 
+            }
           </div>
-          <div className={styles.styleDeaths}>New deaths : 
+          <div className={styles.styleDeaths}>New deaths :
             {(this.props.isCountrySelected === 'true')
-            ? <div className={styles.deaths}>
+              ? <div className={styles.deaths}>
                 {this.props.activeCountry.NewDeaths}
               </div>
-            : <div className={styles.deaths}>
+              : <div className={styles.deaths}>
                 {this.props.covidTableWorldWideData.NewDeaths}
               </div>
-           }
+            }
           </div>
         </div>
       </div>
