@@ -6,4 +6,15 @@
 
 .countries {
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
+
+.countryItem_flag {
+    padding: 5px;
+    width: 20px;
+  }
+ 
+.totalConfirmed{
+    padding: 0px 10px;
+}  
