@@ -37,18 +37,20 @@ export default class CountryList extends Component {
       .then((response) => {
         const activeCountryPopulation = response.data[0].population;
         const activeCountryFlag = response.data[0].flag;
+        const newActiveCountry = this.convertActiveCountryToRelativePopulationType(activeCountry, activeCountryPopulation);
 
         this.props.setPopulation(activeCountryPopulation);
         this.props.setFlagUrl(activeCountryFlag);
+ 
+        this.props.setActiveCountry(activeCountry);
+        this.props.setActiveRelativeCountry(newActiveCountry);
+
         if (
           this.props.populationValueType === POPULATION_COUNT_TYPE.RELATIVE_TYPE
         ) {
-          const newActiveCountry = this.convertActiveCountryToRelativePopulationType(activeCountry, activeCountryPopulation);
-          this.props.setActiveRelativeCountry(newActiveCountry);
           this.props.setCovidTableActiveCountry(newActiveCountry);
 
         } else {
-          this.props.setActiveCountry(activeCountry);
           this.props.setCovidTableActiveCountry(activeCountry);
         }
       });

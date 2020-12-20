@@ -8,6 +8,7 @@ let mapStateToProps = (state) => {
         countryPopulation: state.countryList.countryPopulation,
         countryFlag: state.countryList.countryFlag,
         covidTableWorldWideData: state.countryList.covidTableWorldWideData,
+        isCountrySelected: state.countryList.isCountrySelected,
     }
 }
 

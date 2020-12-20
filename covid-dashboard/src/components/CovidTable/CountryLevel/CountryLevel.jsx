@@ -9,8 +9,7 @@ export default class CountryLevel extends Component {
       <div className={styles.countryLevel}>
         <div>
           <div>
-            {this.props.activeCountry.Country
-              != null
+            {(this.props.isCountrySelected === 'true')
               ? <div className={styles.styleConfirmed}>{this.props.activeCountry.Country} confirmed :
                 <div className={styles.confirmed}>{this.props.activeCountry.TotalConfirmed}</div>
               </div>
@@ -20,8 +19,7 @@ export default class CountryLevel extends Component {
             }
           </div>
           <div className={styles.styleConfirmed}>New confirmed :
-            {this.props.activeCountry.NewRecovered
-              != null
+            {(this.props.isCountrySelected === 'true')
               ? <div className={styles.confirmed}>
                 {this.props.activeCountry.NewConfirmed}
               </div>
