@@ -1,5 +1,3 @@
-import * as axios from 'axios';
-
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import React, { Component } from 'react';
 
@@ -19,7 +17,7 @@ export default class CovidMap extends Component {
             return (
               <Marker position={[c.countryInfo.lat, c.countryInfo.long]}>
                 <Popup>
-                  A pretty CSS3 popup. <br /> Easily customizable.
+                  {c.country} <br /> {c.cases}
     </Popup>
               </Marker>
             )
