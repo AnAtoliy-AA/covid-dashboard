@@ -7,14 +7,6 @@ import styles from './CovidMap.module.css';
 
 export default class CovidMap extends Component {
 
-  componentDidMount() {
-    axios.get(`https://api.covid19api.com/dayone/country/ukraine/status/confirmed`).then((response) => {
-      const activeCountryLongitude = response.data[0].Lon;
-      const activeCountryLatitude = response.data[0].Lat;
-      console.log("RESPONSE: ", response.data[0].Lat);
-      console.log("RESPONSE2: ", response.data[0].Lon);
-    });
-  }
   render() {
     return (
       <div className={styles.covidMap}>
