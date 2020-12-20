@@ -29,46 +29,38 @@ export default class CountryList extends Component {
         `https://restcountries.eu/rest/v2/name/${activeCountry.Country}?fullText=true`
       )
       .then((response) => {
-        this.props.setPopulation(response.data[0].population);
-        this.props.setFlagUrl(response.data[0].flag);
+        const activeCountryPopulation = response.data[0].population;
+        const activeCountryFlag = response.data[0].flag;
+
+        this.props.setPopulation(activeCountryPopulation);
+        this.props.setFlagUrl(activeCountryFlag);
         if (
           this.props.populationValueType === POPULATION_COUNT_TYPE.RELATIVE_TYPE
         ) {
-          const newActiveCountry = this.convertActiveCountryToRelativePopulationType(
-            activeCountry
-          );
-          console.log('NEWACTIVECOUNTRY', newActiveCountry);
+          const newActiveCountry = this.convertActiveCountryToRelativePopulationType(activeCountry, activeCountryPopulation);
+          this.props.setActiveRelativeCountry(newActiveCountry);
         } else {
           this.props.setActiveCountry(activeCountry);
         }
       });
   }
 
-  convertActiveCountryToRelativePopulationType(activeCountry) {
-    activeCountry.NewDeaths = this.convertNumberToRelativePopulationType(
-      activeCountry.NewDeaths
-    );
-    activeCountry.TotalDeaths = this.convertNumberToRelativePopulationType(
-      activeCountry.TotalDeaths
-    );
-    activeCountry.NewRecovered = this.convertNumberToRelativePopulationType(
-      activeCountry.NewRecovered
-    );
-    activeCountry.TotalRecovered = this.convertNumberToRelativePopulationType(
-      activeCountry.TotalRecovered
-    );
-    activeCountry.NewConfirmed = this.convertNumberToRelativePopulationType(
-      activeCountry.NewConfirmed
-    );
-    activeCountry.TotalConfirmed = this.convertNumberToRelativePopulationType(
-      activeCountry.TotalConfirmed
-    );
-    console.log('RELATIVE', activeCountry);
+  convertActiveCountryToRelativePopulationType(activeCountry, activeCountryPopulation) {
+    const newActiveCountry = { ...activeCountry };
+    newActiveCountry.NewDeaths = this.convertNumberToRelativePopulationType(activeCountry.NewDeaths, activeCountryPopulation);
+    newActiveCountry.TotalDeaths = this.convertNumberToRelativePopulationType(activeCountry.TotalDeaths, activeCountryPopulation);
+    newActiveCountry.NewRecovered = this.convertNumberToRelativePopulationType(activeCountry.NewRecovered, activeCountryPopulation);
+    newActiveCountry.TotalRecovered = this.convertNumberToRelativePopulationType(activeCountry.TotalRecovered, activeCountryPopulation);
+    newActiveCountry.NewConfirmed = this.convertNumberToRelativePopulationType(activeCountry.NewConfirmed, activeCountryPopulation);
+    newActiveCountry.TotalConfirmed = this.convertNumberToRelativePopulationType(activeCountry.TotalConfirmed, activeCountryPopulation);
+    console.log('RELATIVE1', newActiveCountry);
+    console.log('RELATIVE2 TotalConfirmed', this.convertNumberToRelativePopulationType(newActiveCountry.TotalConfirmed, activeCountryPopulation));
+    return newActiveCountry;
   }
 
-  convertNumberToRelativePopulationType(number) {
+  convertNumberToRelativePopulationType(number, population) {
     return Math.floor(
-      (number / 150000) * WORLD_WIDE_NUMBERS.POPULATION_KOEFICIENT
+      (number / population) * WORLD_WIDE_NUMBERS.POPULATION_KOEFICIENT
     );
   }
 
@@ -80,7 +72,7 @@ export default class CountryList extends Component {
           {this.props.countryList.map((c) => {
             return (
               <div>
-                 <div
+                <div
                   key={c.CountryCode}
                   className={styles.countries}
                   onClick={() => {
@@ -88,10 +80,10 @@ export default class CountryList extends Component {
                   }}
                 >
                   <img
-                        alt="logo"
-                        src={`https://www.countryflags.io/${c.CountryCode}/shiny/64.png`}
-                        className={styles.countryItem_flag}
-                      />
+                    alt="logo"
+                    src={`https://www.countryflags.io/${c.CountryCode}/shiny/64.png`}
+                    className={styles.countryItem_flag}
+                  />
                   <span className={styles.totalConfirmed}>{c.TotalConfirmed}</span>
                   <span>{c.Country}</span>
                 </div>
