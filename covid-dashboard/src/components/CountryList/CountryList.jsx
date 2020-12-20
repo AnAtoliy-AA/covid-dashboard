@@ -70,9 +70,8 @@ export default class CountryList extends Component {
           <CountrySearchContainer />
           {this.props.countryList.map((c) => {
             return (
-              <div>
+              <div  key={c.CountryCode}>
                 <div
-                  key={c.CountryCode}
                   className={styles.countries}
                   onClick={() => {
                     this.onCountryChanged(c);
