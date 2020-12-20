@@ -15,11 +15,16 @@ export default class CovidMap extends Component {
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={[48.38, 31.17]}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
+          <div>{this.props.countryInfoList.map((c) => {
+            return (
+              <Marker position={[c.countryInfo.lat, c.countryInfo.long]}>
+                <Popup>
+                  A pretty CSS3 popup. <br /> Easily customizable.
     </Popup>
-          </Marker>
+              </Marker>
+            )
+          })}</div>
+
         </MapContainer>
       </div>
     )

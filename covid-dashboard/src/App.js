@@ -2,11 +2,11 @@ import './App.scss';
 
 import CountryListContainer from './components/CountryList/CountryListContainer';
 import CovidGraph from './components/CovidGraph/CovidGraph';
-import CovidMap from './components/CovidMap/CovidMap';
+import CovidMapContainer from './components/CovidMap/CovidMapContainer';
 import CovidTableContainer from './components/CovidTable/CovidTableContainer';
+import FooterContainer from './components/Footer/FooterContainer'
 import GlobalCasesContainer from './components/GlobalCases/GlobalCasesContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
-import FooterContainer from './components/Footer/FooterContainer'
 import React from 'react';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <GlobalCasesContainer />
         <CountryListContainer />
         <CovidTableContainer />
-        <CovidMap />
+        <CovidMapContainer />
         <CovidGraph />
       </div>
       <FooterContainer />

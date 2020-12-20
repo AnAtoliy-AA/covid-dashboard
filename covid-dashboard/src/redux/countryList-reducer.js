@@ -18,6 +18,7 @@ const ACTION_CONST = {
 
 let initialState = {
     countryList: [],
+    countryInfoList: [],
     activeCountry: '',
     worldWideData: '',
     covidTableWorldWideData: {
