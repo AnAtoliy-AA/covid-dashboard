@@ -5,6 +5,7 @@ const ACTION_CONST = {
     SET_ACTIVE_COUNTRY: 'SET_ACTIVE_COUNTRY',
     SET_RELATIVE_ACTIVE_COUNTRY: 'SET_RELATIVE_ACTIVE_COUNTRY',
     SET_COVID_TABLE_ACTIVE_COUNTRY: 'SET_COVID_TABLE_ACTIVE_COUNTRY',
+    SET_COVID_TABLE_ACTIVE_COUNTRY_DATA: 'SET_COVID_TABLE_ACTIVE_COUNTRY_DATA',
     SET_FLAG: 'SET_FLAG',
     SET_POPULATION: 'SET_POPULATION',
     SET_COVID_TABLE_WORLD_WIDE_DATA: 'SET_COVID_TABLE_WORLD_WIDE_DATA',
@@ -50,9 +51,12 @@ const countryListReducer = (state = initialState, action) => {
             return { ...state, activeCountry: action.activeCountry }
         }
         case ACTION_CONST.SET_RELATIVE_ACTIVE_COUNTRY: {
-            return { ...state, relativActiveCountry: action.activeCountry }
+            return { ...state, relativeActiveCountry: action.activeCountry }
         }
         case ACTION_CONST.SET_COVID_TABLE_ACTIVE_COUNTRY: {
+            return { ...state, covidTableActiveCountry: action.activeCountry }
+        }
+        case ACTION_CONST.SET_COVID_TABLE_ACTIVE_COUNTRY_DATA: {
             return { ...state, covidTableActiveCountry: action.activeCountry }
         }
         case ACTION_CONST.SET_FLAG: {
@@ -93,5 +97,7 @@ export const setAbsoluteDataActionCreator = (populationValueType) => ({ type: AC
 export const setCountriesRelativeDataActionCreator = (countryList) => ({ type: ACTION_CONST.SET_RELATIVE_CO, countryList });
 export const setGlobalAbsoluteDataActionCreator = (covidTableWorldWideData) => ({ type: ACTION_CONST.SET_ABSOLUTE_WORLD_WIDE_DATA, covidTableWorldWideData });
 export const setGlobalRelativeDataActionCreator = (covidTableWorldWideData) => ({ type: ACTION_CONST.SET_RELATIVE_WORLD_WIDE_DATA, covidTableWorldWideData });
+
+export const setCovidTableActiveCountryDataActionCreator = (activeCountry) => ({ type: ACTION_CONST.SET_COVID_TABLE_ACTIVE_COUNTRY_DATA, activeCountry });
 
 export default countryListReducer;

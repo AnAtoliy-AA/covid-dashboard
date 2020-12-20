@@ -18,8 +18,11 @@ const POPULATION_COUNT_TYPE = {
 export default class CovidTable extends Component {
 
   onPopulationValueChanged(value) {
-    this.props.setPopulationTypeValue(value);
     const newWorldWideData = { ...this.props.worldWideData };
+    const activeCountry = { ...this.props.activeCountry };
+    const relativeActiveCountry = { ...this.props.relativeActiveCountry };
+
+    this.props.setPopulationTypeValue(value);
     if (value === POPULATION_COUNT_TYPE.RELATIVE_TYPE) {
       for (let key in newWorldWideData) {
         newWorldWideData[key] = Math.floor(newWorldWideData[key]
@@ -27,8 +30,11 @@ export default class CovidTable extends Component {
           * WORLD_WIDE_NUMBERS.POPULATION_KOEFICIENT);
       }
       this.props.setGlobalRelativeData(newWorldWideData);
-
-    } else this.props.setGlobalAbsoluteData(newWorldWideData);
+      this.props.setCovidTableActiveCountryData(activeCountry);
+    } else {
+      this.props.setGlobalAbsoluteData(newWorldWideData);
+      this.props.setCovidTableActiveCountryData(relativeActiveCountry);
+    }
   }
 
   render() {
