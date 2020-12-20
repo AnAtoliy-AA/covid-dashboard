@@ -25,6 +25,9 @@ export default class CountryList extends Component {
       this.props.setCountriesData(response.data.Countries);
       this.props.setCovidTableWorldWideData(response.data.Global);
     });
+    axios.get(`https://disease.sh/v3/covid-19/countries`).then((response) => {
+     this.props.setCountriesInfoData(response.data);
+    });
   }
 
   onCountryChanged(activeCountry) {
@@ -37,22 +40,17 @@ export default class CountryList extends Component {
       .then((response) => {
         const activeCountryPopulation = response.data[0].population;
         const activeCountryFlag = response.data[0].flag;
-        const newActiveCountry = this.convertActiveCountryToRelativePopulationType(activeCountry, activeCountryPopulation);
+        const relativeActiveCountry = this.convertActiveCountryToRelativePopulationType(activeCountry, activeCountryPopulation);
 
         this.props.setPopulation(activeCountryPopulation);
         this.props.setFlagUrl(activeCountryFlag);
 
         this.props.setActiveCountry(activeCountry);
-        this.props.setActiveRelativeCountry(newActiveCountry);
+        this.props.setActiveRelativeCountry(relativeActiveCountry);
 
-        if (
-          this.props.populationValueType === POPULATION_COUNT_TYPE.RELATIVE_TYPE
-        ) {
-          this.props.setCovidTableActiveCountry(newActiveCountry);
-
-        } else {
-          this.props.setCovidTableActiveCountry(activeCountry);
-        }
+        (this.props.populationValueType === POPULATION_COUNT_TYPE.RELATIVE_TYPE)
+          ? this.props.setCovidTableActiveCountry(relativeActiveCountry)
+          : this.props.setCovidTableActiveCountry(activeCountry);
       });
   }
 
