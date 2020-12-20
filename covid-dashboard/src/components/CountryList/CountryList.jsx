@@ -53,8 +53,7 @@ export default class CountryList extends Component {
     newActiveCountry.TotalRecovered = this.convertNumberToRelativePopulationType(activeCountry.TotalRecovered, activeCountryPopulation);
     newActiveCountry.NewConfirmed = this.convertNumberToRelativePopulationType(activeCountry.NewConfirmed, activeCountryPopulation);
     newActiveCountry.TotalConfirmed = this.convertNumberToRelativePopulationType(activeCountry.TotalConfirmed, activeCountryPopulation);
-    console.log('RELATIVE1', newActiveCountry);
-    console.log('RELATIVE2 TotalConfirmed', this.convertNumberToRelativePopulationType(newActiveCountry.TotalConfirmed, activeCountryPopulation));
+
     return newActiveCountry;
   }
 
