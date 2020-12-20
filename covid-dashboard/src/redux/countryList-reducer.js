@@ -6,6 +6,7 @@ const ACTION_CONST = {
     SET_RELATIVE_ACTIVE_COUNTRY: 'SET_RELATIVE_ACTIVE_COUNTRY',
     SET_COVID_TABLE_ACTIVE_COUNTRY: 'SET_COVID_TABLE_ACTIVE_COUNTRY',
     SET_COVID_TABLE_ACTIVE_COUNTRY_DATA: 'SET_COVID_TABLE_ACTIVE_COUNTRY_DATA',
+    SET_IS_COUNTRY_SELECTED: 'SET_IS_COUNTRY_SELECTED',
     SET_FLAG: 'SET_FLAG',
     SET_POPULATION: 'SET_POPULATION',
     SET_COVID_TABLE_WORLD_WIDE_DATA: 'SET_COVID_TABLE_WORLD_WIDE_DATA',
@@ -36,7 +37,8 @@ let initialState = {
         TotalDeaths: 0,
         NewRecovered: 0,
         TotalRecovered: 0,
-    }
+    },
+    isCountrySelected: 'false',
 }
 
 const countryListReducer = (state = initialState, action) => {
@@ -77,6 +79,9 @@ const countryListReducer = (state = initialState, action) => {
         case ACTION_CONST.SET_ABSOLUTE_WORLD_WIDE_DATA: {
             return { ...state, covidTableWorldWideData: action.covidTableWorldWideData }
         }
+        case ACTION_CONST.SET_IS_COUNTRY_SELECTED: {
+            return { ...state, isCountrySelected: action.value }
+        }
         default:
             return state;
     }
@@ -99,5 +104,6 @@ export const setGlobalAbsoluteDataActionCreator = (covidTableWorldWideData) => (
 export const setGlobalRelativeDataActionCreator = (covidTableWorldWideData) => ({ type: ACTION_CONST.SET_RELATIVE_WORLD_WIDE_DATA, covidTableWorldWideData });
 
 export const setCovidTableActiveCountryDataActionCreator = (activeCountry) => ({ type: ACTION_CONST.SET_COVID_TABLE_ACTIVE_COUNTRY_DATA, activeCountry });
+export const setIsCountrySelectedActionCreator = (value) => ({type: ACTION_CONST.SET_IS_COUNTRY_SELECTED, value});
 
 export default countryListReducer;

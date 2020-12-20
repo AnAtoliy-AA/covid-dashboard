@@ -13,6 +13,11 @@ const POPULATION_COUNT_TYPE = {
   ABSOLUTE_TYPE: 'absolute',
   RELATIVE_TYPE: 'relative',
 };
+
+const COUNTRY_SELECTED = {
+  TRUE: 'true',
+  FALSE: 'false',
+}
 export default class CountryList extends Component {
   componentDidMount() {
     axios.get(`https://api.covid19api.com/summary`).then((response) => {
@@ -24,6 +29,7 @@ export default class CountryList extends Component {
 
   onCountryChanged(activeCountry) {
     this.props.setActiveCountry(activeCountry);
+    this.props.setIsCountrySelected(COUNTRY_SELECTED.TRUE);
     axios
       .get(
         `https://restcountries.eu/rest/v2/name/${activeCountry.Country}?fullText=true`
