@@ -23,7 +23,7 @@ export default class CovidMap extends Component {
           <LayerGroup>
             <div>{this.props.countryInfoList.map((c) => {
               return (
-                <div key={c.countryInfo.iso2}>
+                <div key={c.country}>
                   <Circle
                     center={[c.countryInfo.lat, c.countryInfo.long]}
                     pathOptions={(c.cases > 1000000) ? fillRedOptions : fillYellowOptions}
