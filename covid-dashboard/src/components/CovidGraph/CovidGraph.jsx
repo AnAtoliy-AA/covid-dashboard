@@ -8,88 +8,126 @@ import styles from './CovidGraph.module.scss';
 export default class CovidGraph extends Component {
   constructor(props) {
     super(props);
+    this.input = React.createRef();
+    this.isDaily = false;
+
     this.state = {
-      globalCases: {
-        chartData: {},
-      },
+      chartData: {},
     };
   }
 
   componentDidMount() {
-    console.log('componentDidMount');
-    console.log(this.props.activeCountry);
     this.getGlobalCasesData();
   }
 
   componentDidUpdate(prevProps) {
-    console.log('componentDidUpdate');
     if (this.props.activeCountry.Slug !== prevProps.activeCountry.Slug)
       this.getCountryCasesData();
   }
 
   getGlobalCasesData(indicator = 'cases') {
-    console.log('global');
-
     axios
       .get('https://disease.sh/v3/covid-19/historical/all?lastdays=366')
       .then((response) => {
-        this.setState({
-          globalCases: {
-            chartData: {
-              labels: Object.keys(response.data[indicator]),
-              datasets: [
-                {
-                  label: 'Global cases',
-                  data: Object.values(response.data[indicator]).map(
-                    (item) => item / 1000000
-                  ),
-                  backgroundColor: ['rgba(255, 255, 255, 0.2)'],
-                  borderColor: ['rgba(255, 99, 132, 1)'],
-                  borderWidth: 1,
-                },
-              ],
-            },
-          },
-        });
+        this.isDaily
+          ? this.setState({
+              chartData: {
+                labels: Object.keys(response.data[indicator]),
+                datasets: [
+                  {
+                    label: 'Global daily cases',
+                    data: Object.values(response.data[indicator]).map(
+                      (item, index, arr) => {
+                        if (arr[index + 1] > arr[index])
+                          return arr[index + 1] - arr[index];
+                      }
+                    ),
+                    backgroundColor: ['rgba(255, 255, 255, 0.2)'],
+                    borderColor: ['rgba(255, 99, 132, 1)'],
+                    borderWidth: 1,
+                  },
+                ],
+              },
+            })
+          : this.setState({
+              chartData: {
+                labels: Object.keys(response.data[indicator]),
+                datasets: [
+                  {
+                    label: 'Global cases',
+                    data: Object.values(response.data[indicator]).map(
+                      (item) => item / 1000000
+                    ),
+                    backgroundColor: ['rgba(255, 255, 255, 0.2)'],
+                    borderColor: ['rgba(255, 99, 132, 1)'],
+                    borderWidth: 1,
+                  },
+                ],
+              },
+            });
       });
   }
 
   getCountryCasesData(indicator = 'confirmed') {
-    console.log('country');
-
-    console.log(this.props.activeCountry.Slug);
-    console.log(indicator);
-
     axios
       .get(
         `https://api.covid19api.com/dayone/country/${this.props.activeCountry.Slug}/status/${indicator}`
       )
       .then((response) => {
-        this.setState({
-          globalCases: {
-            chartData: {
-              labels: response.data.map((item) =>
-                new Date(item.Date).toString().substring(4, 15)
-              ),
-              datasets: [
-                {
-                  label: ' Country cases',
-                  data: response.data.map((item) => item.Cases),
-                  backgroundColor: ['rgba(255, 255, 255, 0.2)'],
-                  borderColor: ['rgba(255, 99, 132, 1)'],
-                  borderWidth: 1,
-                },
-              ],
-            },
-          },
-        });
+        this.isDaily
+          ? this.setState({
+              chartData: {
+                labels: response.data.map((item) =>
+                  new Date(item.Date).toString().substring(4, 15)
+                ),
+                datasets: [
+                  {
+                    label: 'Country daily cases',
+                    data: response.data
+                      .map((item) => item.Cases)
+                      .map((item, index, arr) => {
+                        if (arr[index + 1] > arr[index])
+                          return arr[index + 1] - arr[index];
+                      }),
+                    backgroundColor: ['rgba(255, 255, 255, 0.2)'],
+                    borderColor: ['rgba(255, 99, 132, 1)'],
+                    borderWidth: 1,
+                  },
+                ],
+              },
+            })
+          : this.setState({
+              chartData: {
+                labels: response.data.map((item) =>
+                  new Date(item.Date).toString().substring(4, 15)
+                ),
+                datasets: [
+                  {
+                    label: 'Country cases',
+                    data: response.data.map((item) => item.Cases),
+                    backgroundColor: ['rgba(255, 255, 255, 0.2)'],
+                    borderColor: ['rgba(255, 99, 132, 1)'],
+                    borderWidth: 1,
+                  },
+                ],
+              },
+            });
       });
+  }
+
+  changeInput(e) {
+    const target = e.target;
+    this.isDaily = target.type === 'checkbox' ? target.checked : target.value;
   }
 
   render() {
     return (
       <div className={styles.covidGraph}>
-        <Line data={this.state.globalCases.chartData} />
+        {this.isDaily ? (
+          <Bar data={this.state.chartData} />
+        ) : (
+          <Line data={this.state.chartData} />
+        )}
         <div>
           <button
             id='cases'
@@ -121,6 +159,14 @@ export default class CovidGraph extends Component {
           >
             recovered
           </button>
+          <label>
+            Daily
+            <input
+              type='checkbox'
+              ref={this.input}
+              onChange={(e) => this.changeInput(e)}
+            />
+          </label>
         </div>
       </div>
     );
