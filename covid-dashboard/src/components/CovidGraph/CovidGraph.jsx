@@ -32,37 +32,92 @@ export default class CovidGraph extends Component {
         this.isDaily
           ? this.setState({
               chartData: {
-                labels: Object.keys(response.data[indicator]),
-                datasets: [
-                  {
-                    label: 'Global daily cases',
-                    data: Object.values(response.data[indicator]).map(
-                      (item, index, arr) => {
-                        if (arr[index + 1] > arr[index])
-                          return arr[index + 1] - arr[index];
-                      }
-                    ),
-                    backgroundColor: ['rgba(255, 255, 255, 0.2)'],
-                    borderColor: ['rgba(255, 99, 132, 1)'],
-                    borderWidth: 1,
+                data: {
+                  labels: Object.keys(response.data[indicator]),
+                  datasets: [
+                    {
+                      label: 'Global daily cases',
+                      data: Object.values(response.data[indicator]).map(
+                        (item, index, arr) => {
+                          if (arr[index + 1] > arr[index])
+                            return arr[index + 1] - arr[index];
+                        }
+                      ),
+                      backgroundColor: '#F2AA16',
+                      borderColor: '#F2AA16',
+                      borderWidth: 1,
+                    },
+                  ],
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: 'Global daily cases',
                   },
-                ],
+                  legend: { display: false },
+                  scales: {
+                    xAxes: [
+                      {
+                        type: 'time',
+                        time: {
+                          unit: 'day',
+                        },
+                        ticks: {
+                          autoSkip: false,
+                          maxRotation: 0,
+                          minRotation: 0,
+                        },
+                      },
+                    ],
+                  },
+                },
               },
             })
           : this.setState({
               chartData: {
-                labels: Object.keys(response.data[indicator]),
-                datasets: [
-                  {
-                    label: 'Global cases',
-                    data: Object.values(response.data[indicator]).map(
-                      (item) => item / 1000000
-                    ),
-                    backgroundColor: ['rgba(255, 255, 255, 0.2)'],
-                    borderColor: ['rgba(255, 99, 132, 1)'],
-                    borderWidth: 1,
+                data: {
+                  labels: Object.keys(response.data[indicator]),
+                  datasets: [
+                    {
+                      label: 'Global cases',
+                      data: Object.values(response.data[indicator]),
+                      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                      pointBorderColor: '#F2AA16',
+                      pointBackgroundColor: '#F2AA16',
+                      pointWidth: 1,
+                    },
+                  ],
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: 'Global cases',
                   },
-                ],
+                  legend: { display: false },
+
+                  scales: {
+                    xAxes: [
+                      {
+                        type: 'time',
+                        time: {
+                          unit: 'day',
+                        },
+                        ticks: {
+                          autoSkip: false,
+                          maxRotation: 0,
+                          minRotation: 0,
+                        },
+                      },
+                    ],
+                    yAxes: [
+                      {
+                        ticks: {
+                          callback: (value) => `${value / 10e6}M`,
+                        },
+                      },
+                    ],
+                  },
+                },
               },
             });
       });
@@ -77,39 +132,89 @@ export default class CovidGraph extends Component {
         this.isDaily
           ? this.setState({
               chartData: {
-                labels: response.data.map((item) =>
-                  new Date(item.Date).toString().substring(4, 15)
-                ),
-                datasets: [
-                  {
-                    label: 'Country daily cases',
-                    data: response.data
-                      .map((item) => item.Cases)
-                      .map((item, index, arr) => {
-                        if (arr[index + 1] > arr[index])
-                          return arr[index + 1] - arr[index];
-                      }),
-                    backgroundColor: ['rgba(255, 255, 255, 0.2)'],
-                    borderColor: ['rgba(255, 99, 132, 1)'],
-                    borderWidth: 1,
+                data: {
+                  labels: response.data.map((item) =>
+                    new Date(item.Date).toString().substring(4, 11)
+                  ),
+                  datasets: [
+                    {
+                      label: `${this.props.activeCountry.Country} daily cases`,
+                      data: response.data
+                        .map((item) => item.Cases)
+                        .map((item, index, arr) => {
+                          if (arr[index + 1] > arr[index])
+                            return arr[index + 1] - arr[index];
+                        }),
+                      backgroundColor: '#F2AA16',
+                      borderColor: '#F2AA16',
+                      borderWidth: 1,
+                    },
+                  ],
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: `${this.props.activeCountry.Country} daily cases`,
                   },
-                ],
+                  legend: { display: false },
+                  scales: {
+                    xAxes: [
+                      {
+                        type: 'time',
+                        time: {
+                          unit: 'day',
+                        },
+                        ticks: {
+                          autoSkip: false,
+                          maxRotation: 0,
+                          minRotation: 0,
+                        },
+                      },
+                    ],
+                  },
+                },
               },
             })
           : this.setState({
               chartData: {
-                labels: response.data.map((item) =>
-                  new Date(item.Date).toString().substring(4, 15)
-                ),
-                datasets: [
-                  {
-                    label: 'Country cases',
-                    data: response.data.map((item) => item.Cases),
-                    backgroundColor: ['rgba(255, 255, 255, 0.2)'],
-                    borderColor: ['rgba(255, 99, 132, 1)'],
-                    borderWidth: 1,
+                data: {
+                  labels: response.data.map((item) =>
+                    new Date(item.Date).toString().substring(4, 11)
+                  ),
+                  datasets: [
+                    {
+                      label: 'Country cases',
+                      data: response.data.map((item) => item.Cases),
+                      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+
+                      pointBorderColor: '#F2AA16',
+                      pointBackgroundColor: '#F2AA16',
+                      pointWidth: 1,
+                    },
+                  ],
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: `${this.props.activeCountry.Country}  cases`,
                   },
-                ],
+                  legend: { display: false },
+                  scales: {
+                    xAxes: [
+                      {
+                        type: 'time',
+                        time: {
+                          unit: 'day',
+                        },
+                        ticks: {
+                          autoSkip: false,
+                          maxRotation: 0,
+                          minRotation: 0,
+                        },
+                      },
+                    ],
+                  },
+                },
               },
             });
       });
@@ -124,9 +229,15 @@ export default class CovidGraph extends Component {
     return (
       <div className={styles.covidGraph}>
         {this.isDaily ? (
-          <Bar data={this.state.chartData} />
+          <Bar
+            data={this.state.chartData.data}
+            options={this.state.chartData.options}
+          />
         ) : (
-          <Line data={this.state.chartData} />
+          <Line
+            data={this.state.chartData.data}
+            options={this.state.chartData.options}
+          />
         )}
         <div>
           <button
