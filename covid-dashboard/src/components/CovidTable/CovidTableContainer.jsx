@@ -1,4 +1,4 @@
-import { setCountriesAbsoluteDataActionCreator, setCountriesRelativeDataActionCreator, setGlobalAbsoluteDataActionCreator, setGlobalRelativeDataActionCreator, setPopulationTypeValueActionCreator } from '../../redux/countryList-reducer';
+import { setCountriesRelativeDataActionCreator, setCovidTableActiveCountryDataActionCreator, setGlobalAbsoluteDataActionCreator, setGlobalRelativeDataActionCreator, setPopulationTypeValueActionCreator } from '../../redux/countryList-reducer';
 
 import CovidTable from './CovidTable';
 import { connect } from 'react-redux';
@@ -7,6 +7,8 @@ let mapStateToProps = (state) => {
     return {
         worldWideData: state.countryList.worldWideData,
         covidTableWorldWideData: state.countryList.covidTableWorldWideData,
+        activeCountry: state.countryList.activeCountry,
+        relativeActiveCountry: state.countryList.relativeActiveCountry,
         countryList: state.countryList.countryList,
         populationValueType: state.countryList.populationValueType,
     }
@@ -17,8 +19,6 @@ let mapDispatchToProps = (dispatch) => {
         setPopulationTypeValue: (populationValueType) => {
             dispatch(setPopulationTypeValueActionCreator(populationValueType))
         },
-        //     dispatch(setCountriesAbsoluteDataActionCreator(countries))
-        // },
         setCountriesRelativeData: (countryList) => {
             dispatch(setCountriesRelativeDataActionCreator(countryList))
         },
@@ -28,7 +28,9 @@ let mapDispatchToProps = (dispatch) => {
         setGlobalRelativeData: (covidTableWorldWideData) => {
             dispatch(setGlobalRelativeDataActionCreator(covidTableWorldWideData))
         },
-
+        setCovidTableActiveCountryData: (activeCountry) => {
+            dispatch(setCovidTableActiveCountryDataActionCreator(activeCountry))
+        }
     }
 }
 

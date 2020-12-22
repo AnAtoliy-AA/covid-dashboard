@@ -8,26 +8,24 @@ export default class CountryDeaths extends Component {
       <div className={styles.countryDeaths}>
         <div>
           <div>
-            {this.props.activeCountry.Country
-            != null
-            ? <div className={styles.styleDeaths}>{this.props.activeCountry.Country} deaths :
+            {(this.props.isCountrySelected)
+              ? <div className={styles.styleDeaths}>{this.props.activeCountry.Country} deaths :
                 <div className={styles.deaths}>{this.props.activeCountry.TotalDeaths}</div>
               </div>
-            : <div className={styles.styleDeaths}>World deaths :
+              : <div className={styles.styleDeaths}>World deaths :
                 <div className={styles.deaths}>{this.props.covidTableWorldWideData.TotalDeaths}</div>
               </div>
-            } 
+            }
           </div>
-          <div className={styles.styleDeaths}>New deaths : 
-            {this.props.activeCountry.NewDeaths
-            != null
-            ? <div className={styles.deaths}>
+          <div className={styles.styleDeaths}>New deaths :
+            {(this.props.isCountrySelected)
+              ? <div className={styles.deaths}>
                 {this.props.activeCountry.NewDeaths}
               </div>
-            : <div className={styles.deaths}>
+              : <div className={styles.deaths}>
                 {this.props.covidTableWorldWideData.NewDeaths}
               </div>
-           }
+            }
           </div>
         </div>
       </div>

@@ -1,4 +1,14 @@
 .covidMap {
     grid-area: c;
     border:solid 2px red;
+    
+}
+
+.leafletContainer{ 
+    height: 100%;
+    width: 100%;
+}
+
+.countryFlag{
+    width: 30px;
 }

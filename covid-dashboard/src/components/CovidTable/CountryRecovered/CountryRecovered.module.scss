@@ -1,12 +1,10 @@
 @import "../../../variable.scss";
-// .countryRecovered {
-//     // grid-area: d;
-//     // border: solid 2px red;
-// }
-.recovered{
-    color:$colorRecover;
+
+.recovered {
+    color: $colorRecover;
     margin-left: 5px;
 }
-.styleRecovered{
+
+.styleRecovered {
     display: flex;
 }
