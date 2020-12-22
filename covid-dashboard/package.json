@@ -8,7 +8,6 @@
     "@testing-library/user-event": "^12.5.0",
     "axios": "^0.21.0",
 <<<<<<< HEAD
-    "leaflet": "^1.7.1",
 =======
     "chart.js": "^2.9.4",
 >>>>>>> 44642e172c2f104086fe6aea31035102a40fdcd5
