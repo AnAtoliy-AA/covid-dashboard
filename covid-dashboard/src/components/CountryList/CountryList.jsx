@@ -17,7 +17,7 @@ const POPULATION_COUNT_TYPE = {
 const COUNTRY_SELECTED = {
   TRUE: true,
   FALSE: false,
-}
+};
 export default class CountryList extends Component {
   componentDidMount() {
     axios.get(`https://api.covid19api.com/summary`).then((response) => {
@@ -26,7 +26,7 @@ export default class CountryList extends Component {
       this.props.setCovidTableWorldWideData(response.data.Global);
     });
     axios.get(`https://disease.sh/v3/covid-19/countries`).then((response) => {
-     this.props.setCountriesInfoData(response.data);
+      this.props.setCountriesInfoData(response.data);
     });
   }
 
@@ -40,7 +40,10 @@ export default class CountryList extends Component {
       .then((response) => {
         const activeCountryPopulation = response.data[0].population;
         const activeCountryFlag = response.data[0].flag;
-        const relativeActiveCountry = this.convertActiveCountryToRelativePopulationType(activeCountry, activeCountryPopulation);
+        const relativeActiveCountry = this.convertActiveCountryToRelativePopulationType(
+          activeCountry,
+          activeCountryPopulation
+        );
 
         this.props.setPopulation(activeCountryPopulation);
         this.props.setFlagUrl(activeCountryFlag);
@@ -48,20 +51,41 @@ export default class CountryList extends Component {
         this.props.setActiveCountry(activeCountry);
         this.props.setActiveRelativeCountry(relativeActiveCountry);
 
-        (this.props.populationValueType === POPULATION_COUNT_TYPE.RELATIVE_TYPE)
+        this.props.populationValueType === POPULATION_COUNT_TYPE.RELATIVE_TYPE
           ? this.props.setCovidTableActiveCountry(relativeActiveCountry)
           : this.props.setCovidTableActiveCountry(activeCountry);
       });
   }
 
-  convertActiveCountryToRelativePopulationType(activeCountry, activeCountryPopulation) {
+  convertActiveCountryToRelativePopulationType(
+    activeCountry,
+    activeCountryPopulation
+  ) {
     const newActiveCountry = { ...activeCountry };
-    newActiveCountry.NewDeaths = this.convertNumberToRelativePopulationType(activeCountry.NewDeaths, activeCountryPopulation);
-    newActiveCountry.TotalDeaths = this.convertNumberToRelativePopulationType(activeCountry.TotalDeaths, activeCountryPopulation);
-    newActiveCountry.NewRecovered = this.convertNumberToRelativePopulationType(activeCountry.NewRecovered, activeCountryPopulation);
-    newActiveCountry.TotalRecovered = this.convertNumberToRelativePopulationType(activeCountry.TotalRecovered, activeCountryPopulation);
-    newActiveCountry.NewConfirmed = this.convertNumberToRelativePopulationType(activeCountry.NewConfirmed, activeCountryPopulation);
-    newActiveCountry.TotalConfirmed = this.convertNumberToRelativePopulationType(activeCountry.TotalConfirmed, activeCountryPopulation);
+    newActiveCountry.NewDeaths = this.convertNumberToRelativePopulationType(
+      activeCountry.NewDeaths,
+      activeCountryPopulation
+    );
+    newActiveCountry.TotalDeaths = this.convertNumberToRelativePopulationType(
+      activeCountry.TotalDeaths,
+      activeCountryPopulation
+    );
+    newActiveCountry.NewRecovered = this.convertNumberToRelativePopulationType(
+      activeCountry.NewRecovered,
+      activeCountryPopulation
+    );
+    newActiveCountry.TotalRecovered = this.convertNumberToRelativePopulationType(
+      activeCountry.TotalRecovered,
+      activeCountryPopulation
+    );
+    newActiveCountry.NewConfirmed = this.convertNumberToRelativePopulationType(
+      activeCountry.NewConfirmed,
+      activeCountryPopulation
+    );
+    newActiveCountry.TotalConfirmed = this.convertNumberToRelativePopulationType(
+      activeCountry.TotalConfirmed,
+      activeCountryPopulation
+    );
 
     return newActiveCountry;
   }
@@ -77,27 +101,33 @@ export default class CountryList extends Component {
       <div className={styles.countryList}>
         <div>
           <CountrySearchContainer />
-          {this.props.countryList.map((c) => {
-            return (
-              <div key={c.CountryCode}>
-                <div
-                  className={styles.countries}
-                  onClick={() => {
-                    this.onCountryChanged(c);
-                  }}
-                >
-                  <img
-                    alt="logo"
-                    src={`https://www.countryflags.io/${c.CountryCode}/shiny/64.png`}
-                    className={styles.countryItem_flag}
-                  />
-                  <span className={styles.totalConfirmed}>{c.TotalConfirmed}</span>
-                  <span>{c.Country}</span>
+          {this.props.countryList !== undefined ? (
+            this.props.countryList.map((c) => {
+              return (
+                <div key={c.CountryCode}>
+                  <div
+                    className={styles.countries}
+                    onClick={() => {
+                      this.onCountryChanged(c);
+                    }}
+                  >
+                    <img
+                      alt='logo'
+                      src={`https://www.countryflags.io/${c.CountryCode}/shiny/64.png`}
+                      className={styles.countryItem_flag}
+                    />
+                    <span className={styles.totalConfirmed}>
+                      {c.TotalConfirmed}
+                    </span>
+                    <span>{c.Country}</span>
+                  </div>
+                  <hr />
                 </div>
-                <hr />
-              </div>
-            );
-          })}
+              );
+            })
+          ) : (
+            <p>Something went wrong with API. Please, try again later!</p>
+          )}
         </div>
       </div>
     );
