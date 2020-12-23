@@ -28,18 +28,6 @@ export default class CountryLevel extends Component {
               </div>
             }
           </div>
-
-          <div className={styles.styleConfirmed}>
-            {this.props.countryPopulation
-              != null
-              ? <div className={styles.styleConfirmed}>Population: <div className={styles.confirmed}> {this.props.countryPopulation}
-
-              </div>
-              </div>
-              : ``
-            }
-            <img className={styles.flag} src={this.props.countryFlag} alt="" />
-          </div>
         </div>
       </div>
     )
