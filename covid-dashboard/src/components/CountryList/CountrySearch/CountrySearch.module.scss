@@ -1,6 +1,21 @@
+@import '../../../variable.scss';
+
 .countrySearch {
-  grid-area: b;
-  border: solid 2px red;
+  color: $textColor;
+}
+
+input {
+  width: 100%;
+  background-color: $bgcolor;
+  color: $textColor;
+  height: 20px;
+  font-size: 16px;
+  border: 1px solid $borderColor;
+  outline: none;
+}
+
+input:focus::placeholder {
+  color: transparent;
 }
 
 img,
@@ -9,10 +24,7 @@ h3 {
   font-size: 12px;
 }
 .results {
-  position: absolute;
   overflow-y: scroll;
-  max-height: 73vh;
-  max-width: 24vw;
 }
 .results__hide {
   display: none;
@@ -24,8 +36,7 @@ h3 {
 }
 .countryItem {
   list-style: none;
-  background-color: white;
-
+  background-color: $bgcolor;
   cursor: pointer;
   display: flex;
   align-items: center;

@@ -1,19 +1,56 @@
-.App {
-  text-align: center;
+@import '../src/variable.scss';
+
+@font-face {
+  font-family: 'Metropolis';
+  src: url('../src/assets/fonts/Metropolis-Regular.otf') format('opentype');
 }
 
 .app-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.app-wrapper__content {
-  height: 86vh;
+  font-family: 'Metropolis';
   display: grid;
   grid-template-areas:
-    "a c d" 
-    "b c d"
-    "b c g";
-  grid-template-rows: 1fr 2fr 3fr;
-  grid-template-columns: 1fr 2fr 1fr;
+    'header header header header'
+    'cases map map table'
+    'list map map table'
+    'list map map chart'
+    'list map map chart'
+    'footer footer footer footer';
+  grid-template-rows: 8% 10% 2fr 3fr 2fr 8%;
+  grid-template-columns: 20% 25% 25% 29%;
+  height: 100vh;
+  margin: 0;
+  background-color: #000;
+  color: $textColor;
+}
+
+::-webkit-scrollbar-button {
+  background-image: url('');
+  background-repeat: no-repeat;
+  width: 5px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #404040;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  background-color: #5c5c5c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #56999f;
+}
+
+::-webkit-resizer {
+  background-image: url('');
+  background-repeat: no-repeat;
+  width: 4px;
+  height: 0px;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
 }

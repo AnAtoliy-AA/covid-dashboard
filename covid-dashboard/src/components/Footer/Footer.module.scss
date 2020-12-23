@@ -1,16 +1,20 @@
+@import '../../variable.scss';
+
 .footer {
-    height: 7vh;
-    border:solid 2px red;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  background-color: $bgcolor;
+  display: flex;
+  grid-area: footer;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid $borderColor;
+  margin: 5px;
 }
 
 .logo {
-    height: 25px;
-    pointer-events: none;
-  }
+  height: 25px;
+  pointer-events: none;
+}
 
-  li{
-    display: inline;
-  }
+li {
+  display: inline;
+}

@@ -1,4 +1,7 @@
+@import '../../variable.scss';
 .header {
-    height: 5vh;
-    border:solid 2px red;
+  grid-area: header;
+  background-color: $bgcolor;
+  border: 1px solid $borderColor;
+  margin: 5px;
 }
