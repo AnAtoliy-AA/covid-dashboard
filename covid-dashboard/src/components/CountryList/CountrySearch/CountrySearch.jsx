@@ -34,26 +34,32 @@ export default class CountrySearch extends Component {
           }
         >
           <ul className={styles.countries}>
-            {this.props.countryList.map((country) => {
-              if (country.Slug.includes(this.state.searchTerm.toLowerCase())) {
-                return (
-                  <li
-                    key={country.CountryCode}
-                    className={styles.countryItem}
-                    onClick={() => this.onCountryChanged(country)}
-                  >
-                    <img
-                      src={`https://www.countryflags.io/${country.CountryCode}/shiny/64.png`}
-                      className={styles.countryItem_flag}
-                      alt='flag'
-                    />
-                    <h3 className={styles.countryItem_name}>
-                      {country.Country}
-                    </h3>
-                  </li>
-                );
-              }
-            })}
+            {this.props.countryList !== undefined ? (
+              this.props.countryList.map((country) => {
+                if (
+                  country.Slug.includes(this.state.searchTerm.toLowerCase())
+                ) {
+                  return (
+                    <li
+                      key={country.CountryCode}
+                      className={styles.countryItem}
+                      onClick={() => this.onCountryChanged(country)}
+                    >
+                      <img
+                        src={`https://www.countryflags.io/${country.CountryCode}/shiny/64.png`}
+                        className={styles.countryItem_flag}
+                        alt='flag'
+                      />
+                      <h3 className={styles.countryItem_name}>
+                        {country.Country}
+                      </h3>
+                    </li>
+                  );
+                }
+              })
+            ) : (
+              <p>Something went wrong with API. Please, try again later!</p>
+            )}
           </ul>
         </div>
       </div>
