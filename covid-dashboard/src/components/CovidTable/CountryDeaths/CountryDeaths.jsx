@@ -4,8 +4,23 @@ import styles from './CountryDeaths.module.scss';
 
 export default class CountryDeaths extends Component {
   render() {
-    return (
+    if(this.props.checked===false){
+      return(     
       <div className={styles.countryDeaths}>
+          <div className={styles.styleDeaths}>New {this.props.activeCountry.Country} deaths :
+            {(this.props.isCountrySelected)
+              ? <div className={styles.deaths}>
+                {this.props.activeCountry.NewDeaths}
+              </div>
+              : <div className={styles.deaths}>
+                {this.props.covidTableWorldWideData.NewDeaths}
+              </div>
+            }
+          </div>
+      </div>)
+    } else {
+      return (    
+         <div className={styles.countryDeaths}>
         <div>
           <div>
             {(this.props.isCountrySelected)
@@ -17,18 +32,9 @@ export default class CountryDeaths extends Component {
               </div>
             }
           </div>
-          <div className={styles.styleDeaths}>New deaths :
-            {(this.props.isCountrySelected)
-              ? <div className={styles.deaths}>
-                {this.props.activeCountry.NewDeaths}
-              </div>
-              : <div className={styles.deaths}>
-                {this.props.covidTableWorldWideData.NewDeaths}
-              </div>
-            }
-          </div>
         </div>
       </div>
-    )
+      )
+    }
   }
 }
