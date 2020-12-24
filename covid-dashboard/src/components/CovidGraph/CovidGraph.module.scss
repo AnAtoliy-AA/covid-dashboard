@@ -1,4 +1,8 @@
+@import '../../variable.scss';
+
 .covidGraph {
-    grid-area: g;
-    border:solid 2px red;
+  grid-area: chart;
+  background-color: $bgcolor;
+  border: 1px solid $borderColor;
+  margin: 5px;
 }

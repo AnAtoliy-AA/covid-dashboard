@@ -13,13 +13,11 @@ function App() {
   return (
     <div className='app-wrapper'>
       <HeaderContainer />
-      <div className='app-wrapper__content'>
-        <GlobalCasesContainer />
-        <CountryListContainer />
-        <CovidTableContainer />
-        <CovidMapContainer />
-        <CovidGraphContainer />
-      </div>
+      <GlobalCasesContainer />
+      <CountryListContainer />
+      <CovidTableContainer />
+      <CovidMapContainer />
+      <CovidGraphContainer />
       <FooterContainer />
     </div>
   );

@@ -1,35 +1,39 @@
+@import '../../variable.scss';
+
 .footer {
-    height: 7vh;
-    border:solid 2px red;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  background-color: $bgcolor;
+  display: flex;
+  grid-area: footer;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid $borderColor;
+  margin: 5px;
 }
 
 .logo {
-    height: 25px;
-    pointer-events: none;
-  }
+  height: 25px;
+  pointer-events: none;
+}
 
-  .createBy{
-    display: flex;
-    flex-direction: row;
-    margin: 0px;
-  }
+.createBy {
+  display: flex;
+  flex-direction: row;
+  margin: 0px;
+}
 
-  .createBy p{
-    margin: 0 auto;
-  }
+.createBy p {
+  margin: 0 auto;
+}
 
-  ul{
-    margin: 0px;
-  }
+ul {
+  margin: 0px;
+}
 
-  li{
-    font-size: 10px;
-  }
+li {
+  font-size: 10px;
+}
 
-  li a{
-    text-decoration: none;
-    color: black;
-  }
+li a {
+  text-decoration: none;
+  color: black;
+}

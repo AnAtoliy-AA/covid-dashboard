@@ -1,15 +1,19 @@
-@import "../../variable.scss";
+@import '../../variable.scss';
+
 .globalCases {
-    grid-area: a;
-    border: solid 2px red;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+  grid-area: cases;
+  background-color: $bgcolor;
+  border: 1px solid $borderColor;
+  margin: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.cases{
-    color: $colorCase;
-    font-size: 20px;
-    margin-left: 5px;
+.cases {
+  color: $colorCase;
+  font-size: 20px;
+  font-weight: 600;
 }

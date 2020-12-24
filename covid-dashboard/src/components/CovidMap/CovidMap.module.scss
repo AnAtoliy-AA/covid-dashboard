@@ -1,0 +1,16 @@
+@import '../../variable.scss';
+
+.covidMap {
+  grid-area: map;
+  border: 1px solid $borderColor;
+  margin: 5px;
+}
+
+.leafletContainer {
+  height: 100%;
+  width: 100%;
+}
+
+.countryFlag {
+  width: 30px;
+}

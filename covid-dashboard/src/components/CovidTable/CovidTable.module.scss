@@ -1,7 +1,8 @@
-@import "../../variable.scss";
+@import '../../variable.scss';
 
 .covidTable {
-    grid-area: d;
-    border: solid 2px red;
-    overflow-y: scroll;
+  grid-area: table;
+  background-color: $bgcolor;
+  border: 1px solid $borderColor;
+  margin: 5px;
 }
