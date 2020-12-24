@@ -46,20 +46,16 @@ export default class CovidTable extends Component {
   }
 
   changeInputDay(e) {
-    console.log(this.state.isDay)
     this.setState({isDay: !this.state.isDay});
-    console.log(this.state.isDay)
   }
 
   changeInput100K(e){
-    console.log(this.state.is100k)
     this.setState({is100k: !this.state.is100k});
     if(this.state.is100k===true){
       this.onPopulationValueChanged(POPULATION_COUNT_TYPE.RELATIVE_TYPE)
     } else{
       this.onPopulationValueChanged(POPULATION_COUNT_TYPE.ABSOLUTE_TYPE)
     }
-    console.log(this.state.is100k)
   }
 
   render() {
