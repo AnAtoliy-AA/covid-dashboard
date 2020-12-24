@@ -11,6 +11,25 @@
     pointer-events: none;
   }
 
+  .createBy{
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+  }
+
+  .createBy p{
+    margin: 0 auto;
+  }
+
+  ul{
+    margin: 0px;
+  }
+
   li{
-    display: inline;
+    font-size: 10px;
+  }
+
+  li a{
+    text-decoration: none;
+    color: black;
   }

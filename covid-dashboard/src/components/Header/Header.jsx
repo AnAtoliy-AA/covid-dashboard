@@ -5,7 +5,7 @@ import styles from './Header.module.scss';
 export default class Header extends Component {
   render() {
     return (
-      <div className={styles.header}>HEADER</div>
+      <div className={styles.header}>COVID-19 Dashboard</div>
     )
   }
 }

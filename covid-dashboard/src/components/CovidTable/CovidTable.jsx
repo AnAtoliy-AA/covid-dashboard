@@ -17,6 +17,14 @@ const POPULATION_COUNT_TYPE = {
 
 export default class CovidTable extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      isDay: true,
+      is100k: true,
+    };
+  }
+
   onPopulationValueChanged(value) {
     const newWorldWideData = { ...this.props.worldWideData };
     const activeCountry = { ...this.props.activeCountry };
@@ -37,18 +45,50 @@ export default class CovidTable extends Component {
     }
   }
 
+  changeInputDay(e) {
+    console.log(this.state.isDay)
+    this.setState({isDay: !this.state.isDay});
+    console.log(this.state.isDay)
+  }
+
+  changeInput100K(e){
+    console.log(this.state.is100k)
+    this.setState({is100k: !this.state.is100k});
+    if(this.state.is100k===true){
+      this.onPopulationValueChanged(POPULATION_COUNT_TYPE.RELATIVE_TYPE)
+    } else{
+      this.onPopulationValueChanged(POPULATION_COUNT_TYPE.ABSOLUTE_TYPE)
+    }
+    console.log(this.state.is100k)
+  }
+
   render() {
     return (
       <div className={styles.covidTable}>Covid Table
         <hr />
-        <CountryDeathsContainer />
+        <CountryDeathsContainer checked={this.state.isDay} />
         <hr />
-        <CountryRecoveredContainer />
+        <CountryRecoveredContainer checked={this.state.isDay}/>
         <hr />
-        <CountryLevelContainer />
-        <button onClick={() => { this.onPopulationValueChanged(POPULATION_COUNT_TYPE.ABSOLUTE_TYPE) }}>Absolute</button>
+        <CountryLevelContainer checked={this.state.isDay}/>
+        <label>Day
+          <input type='checkbox' 
+                // checked={this.state.isDay}
+                onChange={(e) => this.changeInputDay(e)}
+          />
+        </label>
+
+        <label>By 100k
+          <input type='checkbox' 
+                // checked={this.state.is100k}
+                onChange={(e) => this.changeInput100K(e)}
+          />
+        </label>
+
+
+        {/* <button onClick={() => { this.onPopulationValueChanged(POPULATION_COUNT_TYPE.ABSOLUTE_TYPE) }}>Absolute</button>
         <button
-          onClick={() => { this.onPopulationValueChanged(POPULATION_COUNT_TYPE.RELATIVE_TYPE) }}>By 100k</button>
+          onClick={() => { this.onPopulationValueChanged(POPULATION_COUNT_TYPE.RELATIVE_TYPE) }}>By 100k</button> */}
       </div>
     )
   }
