@@ -53,6 +53,7 @@ export default class CovidGraph extends Component {
                   title: {
                     display: true,
                     text: 'Global daily cases',
+                    fontColor: '#bdbdbd',
                   },
                   legend: { display: false },
                   scales: {
@@ -61,12 +62,19 @@ export default class CovidGraph extends Component {
                         type: 'time',
                         time: {
                           unit: 'day',
+                          unitStepSize: 30,
                         },
                         ticks: {
                           autoSkip: false,
                           maxRotation: 0,
                           minRotation: 0,
+                          fontColor: '#bdbdbd',
                         },
+                      },
+                    ],
+                    yAxes: [
+                      {
+                        ticks: { fontColor: '#bdbdbd' },
                       },
                     ],
                   },
@@ -81,7 +89,6 @@ export default class CovidGraph extends Component {
                     {
                       label: 'Global cases',
                       data: Object.values(response.data[indicator]),
-                      backgroundColor: 'rgba(255, 255, 255, 0.2)',
                       pointBorderColor: '#F2AA16',
                       pointBackgroundColor: '#F2AA16',
                       pointWidth: 1,
@@ -92,6 +99,7 @@ export default class CovidGraph extends Component {
                   title: {
                     display: true,
                     text: 'Global cases',
+                    fontColor: '#bdbdbd',
                   },
                   legend: { display: false },
 
@@ -101,11 +109,14 @@ export default class CovidGraph extends Component {
                         type: 'time',
                         time: {
                           unit: 'day',
+                          unitStepSize: 30,
                         },
+
                         ticks: {
                           autoSkip: false,
                           maxRotation: 0,
                           minRotation: 0,
+                          fontColor: '#bdbdbd',
                         },
                       },
                     ],
@@ -113,6 +124,7 @@ export default class CovidGraph extends Component {
                       {
                         ticks: {
                           callback: (value) => `${value / 10e6}M`,
+                          fontColor: '#bdbdbd',
                         },
                       },
                     ],
@@ -155,6 +167,7 @@ export default class CovidGraph extends Component {
                   title: {
                     display: true,
                     text: `${this.props.activeCountry.Country} daily cases`,
+                    fontColor: '#bdbdbd',
                   },
                   legend: { display: false },
                   scales: {
@@ -163,14 +176,17 @@ export default class CovidGraph extends Component {
                         type: 'time',
                         time: {
                           unit: 'day',
+                          unitStepSize: 30,
                         },
                         ticks: {
                           autoSkip: false,
                           maxRotation: 0,
                           minRotation: 0,
+                          fontColor: '#bdbdbd',
                         },
                       },
                     ],
+                    yAxes: [{ ticks: { fontColor: '#bdbdbd' } }],
                   },
                 },
               },
@@ -185,8 +201,6 @@ export default class CovidGraph extends Component {
                     {
                       label: 'Country cases',
                       data: response.data.map((item) => item.Cases),
-                      backgroundColor: 'rgba(255, 255, 255, 0.2)',
-
                       pointBorderColor: '#F2AA16',
                       pointBackgroundColor: '#F2AA16',
                       pointWidth: 1,
@@ -197,6 +211,7 @@ export default class CovidGraph extends Component {
                   title: {
                     display: true,
                     text: `${this.props.activeCountry.Country}  cases`,
+                    fontColor: '#bdbdbd',
                   },
                   legend: { display: false },
                   scales: {
@@ -205,14 +220,17 @@ export default class CovidGraph extends Component {
                         type: 'time',
                         time: {
                           unit: 'day',
+                          unitStepSize: 30,
                         },
                         ticks: {
                           autoSkip: false,
                           maxRotation: 0,
                           minRotation: 0,
+                          fontColor: '#bdbdbd',
                         },
                       },
                     ],
+                    yAxes: [{ ticks: { fontColor: '#bdbdbd' } }],
                   },
                 },
               },
@@ -232,11 +250,15 @@ export default class CovidGraph extends Component {
           <Bar
             data={this.state.chartData.data}
             options={this.state.chartData.options}
+            width={'100%'}
+            height={'100%'}
           />
         ) : (
           <Line
             data={this.state.chartData.data}
             options={this.state.chartData.options}
+            width={'100%'}
+            height={'100%'}
           />
         )}
         <div>
