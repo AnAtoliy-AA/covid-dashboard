@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import styles from './CountrySearch.module.scss';
 
 const WORLD_WIDE_NUMBERS = {

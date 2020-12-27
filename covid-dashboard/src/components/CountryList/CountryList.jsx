@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 
 import CountrySearchContainer from './CountrySearch/CountrySearchContainer';
 import styles from './CountryList.module.scss';
+import ListCountryConteiner from './ListCountry/ListCountryConteiner';
 
 const WORLD_WIDE_NUMBERS = {
   POPULATION_KOEFICIENT: 100000,
@@ -40,6 +41,7 @@ export default class CountryList extends Component {
     this.props.populationValueType === POPULATION_COUNT_TYPE.RELATIVE_TYPE
       ? this.props.setCovidTableActiveCountry(relativeActiveCountry)
       : this.props.setCovidTableActiveCountry(activeCountry);
+      console.log(activeCountry)
 
   }
 
@@ -84,33 +86,7 @@ export default class CountryList extends Component {
       <div className={styles.countryList}>
         <div>
           <CountrySearchContainer />
-          {this.props.countryInfoList !== undefined ? (
-            this.props.countryInfoList.map((c) => {
-              return (
-                <div key={c.country}>
-                  <div
-                    className={styles.countries}
-                    onClick={() => {
-                      this.onCountryChanged(c);
-                    }}
-                  >
-                    <img
-                      alt='logo'
-                      src={c.countryInfo.flag}
-                      className={styles.countryItem_flag}
-                    />
-                    <span className={styles.totalConfirmed}>
-                      {c.cases}
-                    </span>
-                    <span>{c.country}</span>
-                  </div>
-                  <hr />
-                </div>
-              );
-            })
-          ) : (
-              <p>Something went wrong with API. Please, try again later!</p>
-            )}
+          <ListCountryConteiner onCountryChanged={this.onCountryChanged} />
         </div>
       </div>
     );
