@@ -5,7 +5,7 @@ import { setActiveCountryActionCreator } from '../../redux/countryList-reducer';
 let mapStateToProps = (state) => {
     return {
         worldWideData: state.countryList.worldWideData,
-        activeCountry: state.countryList.covidTableActiveCountry,
+        position: state.countryList.activeCountry.countryInfo,
         covidTableWorldWideData: state.countryList.covidTableWorldWideData,
         isCountrySelected: state.countryList.isCountrySelected,
         countryInfoList: state.countryList.countryInfoList,

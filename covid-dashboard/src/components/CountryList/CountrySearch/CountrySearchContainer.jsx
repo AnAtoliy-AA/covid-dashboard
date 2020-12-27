@@ -4,7 +4,7 @@ import { setActiveCountryActionCreator } from '../../../redux/countryList-reduce
 
 let mapStateToProps = (state) => {
   return {
-    countryList: state.countryList.countryList,
+    countryInfoList: state.countryList.countryInfoList,
     activeCountry: state.countryList.activeCountry,
   };
 };

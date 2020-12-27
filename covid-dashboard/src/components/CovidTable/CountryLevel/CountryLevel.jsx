@@ -9,10 +9,10 @@ export default class CountryLevel extends Component {
     if(this.props.checked===false){
       return(     
       <div className={styles.countryDeaths}>
-          <div className={styles.styleConfirmed}>New {this.props.activeCountry.Country} confirmed :
+          <div className={styles.styleConfirmed}>New {this.props.activeCountry.country} confirmed :
              {(this.props.isCountrySelected)
              ? <div className={styles.confirmed}>
-                 {this.props.activeCountry.NewConfirmed}
+                 {this.props.activeCountry.todayCases}
               </div>
              : <div className={styles.confirmed}>
                 {this.props.covidTableWorldWideData.NewConfirmed}
@@ -25,8 +25,8 @@ export default class CountryLevel extends Component {
         <div className={styles.countryLevel}>
             <div>
               {(this.props.isCountrySelected)
-                ? <div className={styles.styleConfirmed}>{this.props.activeCountry.Country} Confirmed :
-                  <div className={styles.confirmed}>{this.props.activeCountry.TotalConfirmed}</div>
+                ? <div className={styles.styleConfirmed}>{this.props.activeCountry.country} Confirmed :
+                  <div className={styles.confirmed}>{this.props.activeCountry.cases}</div>
                 </div>
                 : <div className={styles.styleConfirmed}>World confirmed :
                   <div className={styles.confirmed}>{this.props.covidTableWorldWideData.TotalConfirmed}</div>

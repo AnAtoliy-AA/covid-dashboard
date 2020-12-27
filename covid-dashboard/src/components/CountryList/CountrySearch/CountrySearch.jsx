@@ -34,10 +34,10 @@ export default class CountrySearch extends Component {
           }
         >
           <ul className={styles.countries}>
-            {this.props.countryList !== undefined ? (
-              this.props.countryList.map((country) => {
+            {this.props.countryInfoList !== undefined ? (
+              this.props.countryInfoList.map((country) => {
                 if (
-                  country.Slug.includes(this.state.searchTerm.toLowerCase())
+                  country.country.toLowerCase().includes(this.state.searchTerm.toLowerCase())
                 ) {
                   return (
                     <li
@@ -46,12 +46,12 @@ export default class CountrySearch extends Component {
                       onClick={() => this.onCountryChanged(country)}
                     >
                       <img
-                        src={`https://www.countryflags.io/${country.CountryCode}/shiny/64.png`}
+                        src={country.countryInfo.flag}
                         className={styles.countryItem_flag}
                         alt='flag'
                       />
                       <h3 className={styles.countryItem_name}>
-                        {country.Country}
+                        {country.country}
                       </h3>
                     </li>
                   );

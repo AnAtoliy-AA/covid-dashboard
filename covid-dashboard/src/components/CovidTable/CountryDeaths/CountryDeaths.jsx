@@ -7,10 +7,10 @@ export default class CountryDeaths extends Component {
     if(this.props.checked===false){
       return(     
       <div className={styles.countryDeaths}>
-          <div className={styles.styleDeaths}>New {this.props.activeCountry.Country} deaths :
+          <div className={styles.styleDeaths}>New {this.props.activeCountry.country} deaths :
             {(this.props.isCountrySelected)
               ? <div className={styles.deaths}>
-                {this.props.activeCountry.NewDeaths}
+                {this.props.activeCountry.todayDeaths}
               </div>
               : <div className={styles.deaths}>
                 {this.props.covidTableWorldWideData.NewDeaths}
@@ -24,8 +24,8 @@ export default class CountryDeaths extends Component {
         <div>
           <div>
             {(this.props.isCountrySelected)
-              ? <div className={styles.styleDeaths}>{this.props.activeCountry.Country} deaths :
-                <div className={styles.deaths}>{this.props.activeCountry.TotalDeaths}</div>
+              ? <div className={styles.styleDeaths}>{this.props.activeCountry.country} deaths :
+                <div className={styles.deaths}>{this.props.activeCountry.deaths}</div>
               </div>
               : <div className={styles.styleDeaths}>World deaths :
                 <div className={styles.deaths}>{this.props.covidTableWorldWideData.TotalDeaths}</div>
