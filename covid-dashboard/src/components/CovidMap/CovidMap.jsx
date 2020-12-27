@@ -21,7 +21,7 @@ export default class CovidMap extends Component {
       <div className={styles.covidMap}>
         <MapContainer
           className={styles.leafletContainer}
-          center={[48.38, 31.17]}
+          center={[this.props.position.lat, this.props.position.long]}
           zoom={5}
           scrollWheelZoom={true}
         >

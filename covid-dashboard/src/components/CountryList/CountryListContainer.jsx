@@ -1,15 +1,13 @@
-import { setActiveCountryActionCreator, setActiveRelativeCountryActionCreator, setCountriesDataActionCreator, setCountriesInfoDataActionCreator, setCovidTableActiveCountryActionCreator, setCovidTableWorldWideDataActionCreator, setFlagUrlActionCreator, setGlobalDataActionCreator, setIsCountrySelectedActionCreator, setPopulationActionCreator } from '../../redux/countryList-reducer';
+import { setActiveCountryActionCreator, setActiveRelativeCountryActionCreator, setCountriesInfoDataActionCreator, setCovidTableActiveCountryActionCreator, setCovidTableWorldWideDataActionCreator, setGlobalDataActionCreator, setIsCountrySelectedActionCreator } from '../../redux/countryList-reducer';
 
 import CountryList from './CountryList';
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
     return {
-        countryList: state.countryList.countryList,
+        countryInfoList: state.countryList.countryInfoList,
         activeCountry: state.countryList.activeCountry,
         worldWideData: state.countryList.worldWideData,
-        countryPopulation: state.countryList.countryPopulation,
-        countryFlag: state.countryList.countryFlag,
         covidTableWorldWideData: state.countryList.worldWideData,
         populationValueType: state.countryList.populationValueType,
     }
@@ -17,9 +15,6 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        setCountriesData: (countryList) => {
-            dispatch(setCountriesDataActionCreator(countryList))
-        },
         setCountriesInfoData: (countryInfoList) => {
             dispatch(setCountriesInfoDataActionCreator(countryInfoList))
         },
@@ -40,12 +35,6 @@ let mapDispatchToProps = (dispatch) => {
         },
         setIsCountrySelected: (value) => {
             dispatch(setIsCountrySelectedActionCreator(value))
-        },
-        setPopulation: (countryPopulation) => {
-            dispatch(setPopulationActionCreator(countryPopulation))
-        },
-        setFlagUrl: (countryFlag) => {
-            dispatch(setFlagUrlActionCreator(countryFlag))
         },
     }
 }

@@ -9,10 +9,10 @@ export default class CountryRecovered extends Component {
     if(this.props.checked===false){
       return (
         <div className={styles.countryRecovered}>
-            <div className={styles.styleRecovered}>New {this.props.activeCountry.Country} recovered :
+            <div className={styles.styleRecovered}>New {this.props.activeCountry.country} recovered :
               {(this.props.isCountrySelected)
                 ? <div className={styles.recovered}>
-                  {this.props.activeCountry.NewRecovered}
+                  {this.props.activeCountry.todayRecovered}
                 </div>
                 : <div className={styles.recovered}>
                   {this.props.covidTableWorldWideData.NewRecovered}
@@ -26,8 +26,8 @@ export default class CountryRecovered extends Component {
           <div className={styles.countryRecovered}>
               <div>
                 {(this.props.isCountrySelected)
-                  ? <div className={styles.styleRecovered}>{this.props.activeCountry.Country} recovered :
-                    <div className={styles.recovered}>{this.props.activeCountry.TotalRecovered}</div>
+                  ? <div className={styles.styleRecovered}>{this.props.activeCountry.country} recovered :
+                    <div className={styles.recovered}>{this.props.activeCountry.recovered}</div>
                   </div>
                   : <div className={styles.styleRecovered}>World recovered :
                     <div className={styles.recovered}>{this.props.covidTableWorldWideData.TotalRecovered}</div>

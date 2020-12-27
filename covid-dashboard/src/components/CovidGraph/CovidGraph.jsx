@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-
 import { Bar, Line } from 'react-chartjs-2';
+import React, { Component } from 'react';
 
+import axios from 'axios';
 import styles from './CovidGraph.module.scss';
 
 export default class CovidGraph extends Component {
@@ -21,7 +20,7 @@ export default class CovidGraph extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.activeCountry.Slug !== prevProps.activeCountry.Slug)
+    if (this.props.activeCountry.country !== prevProps.activeCountry.country)
       this.getCountryCasesData();
   }
 
@@ -138,7 +137,7 @@ export default class CovidGraph extends Component {
   getCountryCasesData(indicator = 'confirmed') {
     axios
       .get(
-        `https://api.covid19api.com/dayone/country/${this.props.activeCountry.Slug}/status/${indicator}`
+        `https://api.covid19api.com/dayone/country/${this.props.activeCountry.country}/status/${indicator}`
       )
       .then((response) => {
         this.isDaily
@@ -150,7 +149,7 @@ export default class CovidGraph extends Component {
                   ),
                   datasets: [
                     {
-                      label: `${this.props.activeCountry.Country} daily cases`,
+                      label: `${this.props.activeCountry.country} daily cases`,
                       data: response.data
                         .map((item) => item.Cases)
                         .map((item, index, arr) => {
@@ -166,7 +165,7 @@ export default class CovidGraph extends Component {
                 options: {
                   title: {
                     display: true,
-                    text: `${this.props.activeCountry.Country} daily cases`,
+                    text: `${this.props.activeCountry.country} daily cases`,
                     fontColor: '#bdbdbd',
                   },
                   legend: { display: false },
@@ -210,7 +209,7 @@ export default class CovidGraph extends Component {
                 options: {
                   title: {
                     display: true,
-                    text: `${this.props.activeCountry.Country}  cases`,
+                    text: `${this.props.activeCountry.country}  cases`,
                     fontColor: '#bdbdbd',
                   },
                   legend: { display: false },
