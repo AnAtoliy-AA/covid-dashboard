@@ -33,7 +33,7 @@ export default class CountrySearch extends Component {
         />
         <div
           className={
-            this.state.searchTerm.length !== 0
+            (this.state.searchTerm.length !== 0)
               ? styles.results
               : styles.results__hide
           }

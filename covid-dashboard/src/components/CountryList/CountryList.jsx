@@ -13,7 +13,7 @@ const COUNTRY_SELECTED = {
 export default class CountryList extends Component {
   componentDidMount() {
     axios.get(`https://api.covid19api.com/summary`).then((response) => {
-      this.props.setGlobalData(response.data.Global);
+      this.props.setWorldWideData(response.data.Global);
       this.props.setCovidTableWorldWideData(response.data.Global);
     });
     axios.get(`https://disease.sh/v3/covid-19/countries`).then((response) => {

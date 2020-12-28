@@ -1,14 +1,11 @@
 import { defaultcountryInfoList } from "./countryInfoList"
 
 const ACTION_CONST = {
-    SET_GLOBAL: 'SET_GLOBAL',
     SET_COUNTRIES_INFO: 'SET_COUNTRIES_INFO',
+    SET_WORLD_WIDE_DATA: 'SET_WORLD_WIDE_DATA',
+    SET_COVID_TABLE_WORLD_WIDE_DATA: 'SET_COVID_TABLE_WORLD_WIDE_DATA',
     SET_ACTIVE_COUNTRY: 'SET_ACTIVE_COUNTRY',
     SET_IS_COUNTRY_SELECTED: 'SET_IS_COUNTRY_SELECTED',
-    SET_COVID_TABLE_WORLD_WIDE_DATA: 'SET_COVID_TABLE_WORLD_WIDE_DATA',
-    SET_POPULATION_TYPE_VALUE: 'SET_POPULATION_TYPE_VALUE',
-    SET_ABSOLUTE_WORLD_WIDE_DATA: 'SET_ABSOLUTE_WORLD_WIDE_DATA',
-    SET_RELATIVE_WORLD_WIDE_DATA: 'SET_RELATIVE_WORLD_WIDE_DATA',
     SET_IS_LAST_DAY_SELECTED: 'SET_IS_LAST_DAY_SELECTED',
     SET_IS_RELATIVE_POPULATION_SELECTED: 'SET_IS_RELATIVE_POPULATION_SELECTED',
 }
@@ -16,10 +13,36 @@ const ACTION_CONST = {
 let initialState = {
     countryInfoList: defaultcountryInfoList,
     activeCountry: {
+        updated: 0,
+        country: '',
         countryInfo: {
+            _id: 0,
+            iso2: '',
+            iso3: '',
             lat: 53,
             long: 28,
-        }
+            flag: ''
+        },
+        cases: 0,
+        todayCases: 0,
+        deaths: 0,
+        todayDeaths: 0,
+        recovered: 0,
+        todayRecovered: 0,
+        active: 0,
+        critical: 0,
+        casesPerOneMillion: 0,
+        deathsPerOneMillion: 0,
+        tests: 0,
+        testsPerOneMillion: 0,
+        population: 0,
+        continent: '',
+        oneCasePerPeople: 0,
+        oneDeathPerPeople: 0,
+        oneTestPerPeople: 0,
+        activePerOneMillion: 0,
+        recoveredPerOneMillion: 0,
+        criticalPerOneMillion: 0,
     },
     worldWideData: {
         NewDeaths: 0,
@@ -44,8 +67,11 @@ let initialState = {
 
 const countryListReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ACTION_CONST.SET_GLOBAL: {
+        case ACTION_CONST.SET_WORLD_WIDE_DATA: {
             return { ...state, worldWideData: action.worldWideData }
+        }
+        case ACTION_CONST.SET_COVID_TABLE_WORLD_WIDE_DATA: {
+            return { ...state, covidTableWorldWideData: action.covidTableWorldWideData }
         }
         case ACTION_CONST.SET_COUNTRIES_INFO: {
             return { ...state, countryInfoList: action.countryInfoList }
@@ -59,9 +85,6 @@ const countryListReducer = (state = initialState, action) => {
         case ACTION_CONST.SET_IS_RELATIVE_POPULATION_SELECTED: {
             return { ...state, isRelativePopulationSeleted: action.value }
         }
-        case ACTION_CONST.SET_COVID_TABLE_WORLD_WIDE_DATA: {
-            return { ...state, covidTableWorldWideData: action.covidTableWorldWideData }
-        }
         case ACTION_CONST.SET_IS_COUNTRY_SELECTED: {
             return { ...state, isCountrySelected: action.value }
         }
@@ -69,17 +92,13 @@ const countryListReducer = (state = initialState, action) => {
             return state;
     }
 }
-export const setActiveCountryActionCreator = (activeCountry) => ({ type: ACTION_CONST.SET_ACTIVE_COUNTRY, activeCountry });
-export const setGlobalDataActionCreator = (worldWideData) => ({ type: ACTION_CONST.SET_GLOBAL, worldWideData });
+
+export const setWorldWideDataActionCreator = (worldWideData) => ({ type: ACTION_CONST.SET_WORLD_WIDE_DATA, worldWideData });
 export const setCovidTableWorldWideDataActionCreator = (covidTableWorldWideData) => ({ type: ACTION_CONST.SET_COVID_TABLE_WORLD_WIDE_DATA, covidTableWorldWideData });
+export const setCountriesInfoDataActionCreator = (countryInfoList) => ({ type: ACTION_CONST.SET_COUNTRIES_INFO, countryInfoList })
+export const setActiveCountryActionCreator = (activeCountry) => ({ type: ACTION_CONST.SET_ACTIVE_COUNTRY, activeCountry });
 export const setIsLastDaySelectedActionCreator = (value) => ({ type: ACTION_CONST.SET_IS_LAST_DAY_SELECTED, value });
 export const setIsCountrySelectedActionCreator = (value) => ({ type: ACTION_CONST.SET_IS_COUNTRY_SELECTED, value });
 export const setIsRelativePopulationSeletedActionCreator = (value) => ({ type: ACTION_CONST.SET_IS_RELATIVE_POPULATION_SELECTED, value });
-
-export const setCountriesInfoDataActionCreator = (countryInfoList) => ({ type: ACTION_CONST.SET_COUNTRIES_INFO, countryInfoList })
-
-export const setCountriesRelativeDataActionCreator = (countryList) => ({ type: ACTION_CONST.SET_RELATIVE_CO, countryList });
-
-export const setCovidTableActiveCountryDataActionCreator = (activeCountry) => ({ type: ACTION_CONST.SET_COVID_TABLE_ACTIVE_COUNTRY_DATA, activeCountry });
 
 export default countryListReducer;
