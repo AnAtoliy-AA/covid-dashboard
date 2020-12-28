@@ -1,6 +1,5 @@
-// import React, { Component } from 'react';
-import styles from '../CountryList.module.scss';
 import React from 'react';
+import styles from '../CountryList.module.scss';
 
 export default function ListCountry (props){
            if(props.countryInfoList !== undefined)  {
@@ -10,6 +9,7 @@ export default function ListCountry (props){
                     <div
                         className={styles.countries}
                         onClick={() => {
+                            debugger;
                         props.onCountryChanged(c);
                         }}
                     >

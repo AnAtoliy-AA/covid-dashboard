@@ -4,9 +4,7 @@ import { connect } from 'react-redux';
 let mapStateToProps = (state) => {
     return {
         worldWideData: state.countryList.worldWideData,
-        activeCountry: state.countryList.covidTableActiveCountry,
-        countryPopulation: state.countryList.countryPopulation,
-        countryFlag: state.countryList.countryFlag,
+        activeCountry: state.countryList.activeCountry,
         covidTableWorldWideData: state.countryList.covidTableWorldWideData,
         isCountrySelected: state.countryList.isCountrySelected,
     }

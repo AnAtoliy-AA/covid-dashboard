@@ -4,7 +4,7 @@ import styles from './CountryDeaths.module.scss';
 
 export default class CountryDeaths extends Component {
   render() {
-    if(this.props.checked===false){
+    if(!this.props.checked){
       return(     
       <div className={styles.countryDeaths}>
           <div className={styles.styleDeaths}>New {this.props.activeCountry.country} deaths :
