@@ -17,13 +17,13 @@ const POPULATION_COUNT_TYPE = {
 
 export default class CovidTable extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      isDay: true,
-      is100k: true,
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     isDay: true,
+  //     is100k: true,
+  //   };
+  // }
 
   onPopulationValueChanged(value) {
     const newWorldWideData = { ...this.props.worldWideData };
@@ -42,31 +42,33 @@ export default class CovidTable extends Component {
   }
 
   changeInputDay() {
-    this.setState({ isDay: !this.state.isDay });
-    (this.state.isDay)
-      ? this.props.setIsLastDaySelected(true)
-      : this.props.setIsLastDaySelected(false)
+    // this.setState({ isDay: !this.state.isDay });
+    // (this.state.isDay)
+    //   ? this.props.setIsLastDaySelected(true)
+    //   : this.props.setIsLastDaySelected(false)
+    this.props.setIsLastDaySelected(!this.props.isLastDaySelected)
   }
 
   changeInput100K() {
-    this.setState({ is100k: !this.state.is100k });
-    (this.state.is100k)
-      ? this.onPopulationValueChanged(POPULATION_COUNT_TYPE.RELATIVE_TYPE)
-      : this.onPopulationValueChanged(POPULATION_COUNT_TYPE.ABSOLUTE_TYPE);
-      (this.state.is100k)
-      ? this.props.setIsRelativePopulationSeleted(true)
-      : this.props.setIsRelativePopulationSeleted(false)
+    this.props.setIsRelativePopulationSeleted(!this.props.isRelativePopulationSeleted)
+    // this.setState({ is100k: !this.state.is100k });
+    // (this.state.is100k)
+    //   ? this.onPopulationValueChanged(POPULATION_COUNT_TYPE.RELATIVE_TYPE)
+    //   : this.onPopulationValueChanged(POPULATION_COUNT_TYPE.ABSOLUTE_TYPE);
+      // (this.state.is100k)
+      // ? this.props.setIsRelativePopulationSeleted(true)
+      // : this.props.setIsRelativePopulationSeleted(false)
   }
 
   render() {
     return (
       <div className={styles.covidTable}>Covid Table
         <hr />
-        <CountryDeathsContainer checked={this.state.isDay} />
+        <CountryDeathsContainer  />
         <hr />
-        <CountryRecoveredContainer checked={this.state.isDay} />
+        <CountryRecoveredContainer  />
         <hr />
-        <CountryLevelContainer checked={this.state.isDay} />
+        <CountryLevelContainer  />
         <label>Day
           <input type='checkbox'
             onChange={() => this.changeInputDay()}

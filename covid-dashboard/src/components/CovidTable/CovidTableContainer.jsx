@@ -10,16 +10,17 @@ let mapStateToProps = (state) => {
         activeCountry: state.countryList.activeCountry,
         relativeActiveCountry: state.countryList.relativeActiveCountry,
         countryList: state.countryList.countryList,
-        populationValueType: state.countryList.populationValueType,
+        // populationValueType: state.countryList.populationValueType,
         isLastDaySelected: state.countryList.isLastDaySelected,
+        isRelativePopulationSeleted: state.countryList.isRelativePopulationSeleted,
     }
 }
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        setPopulationTypeValue: (populationValueType) => {
-            dispatch(setPopulationTypeValueActionCreator(populationValueType))
-        },
+        // setPopulationTypeValue: (populationValueType) => {
+        //     dispatch(setPopulationTypeValueActionCreator(populationValueType))
+        // },
         setCountriesRelativeData: (countryList) => {
             dispatch(setCountriesRelativeDataActionCreator(countryList))
         },

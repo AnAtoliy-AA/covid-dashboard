@@ -4,13 +4,13 @@ import styles from './CountryDeaths.module.scss';
 
 export default class CountryDeaths extends Component {
   render() {
-    if (!this.props.checked) {
+    if (this.props.isLastDaySelected) {
       return (
         <div className={styles.countryDeaths}>
           <div className={styles.styleDeaths}>New {this.props.activeCountry.country} deaths :
             {(this.props.isCountrySelected)
               ? <div className={styles.deaths}>
-                {(this.props.populationValueType === 'absolute')
+                {(!this.props.isRelativePopulationSeleted)
                   ? this.props.activeCountry.todayDeaths
                   : Math.floor(this.props.activeCountry.todayDeaths / this.props.activeCountryPopulation * 100000)}
               </div>
@@ -28,7 +28,7 @@ export default class CountryDeaths extends Component {
               {(this.props.isCountrySelected)
                 ? <div className={styles.styleDeaths}>{this.props.activeCountry.country} deaths :
                 <div className={styles.deaths}>
-                    {(this.props.populationValueType === 'absolute')
+                    {(!this.props.isRelativePopulationSeleted)
                       ? this.props.activeCountry.deaths
                       : Math.floor(this.props.activeCountry.deathsPerOneMillion / 10)}
                   </div>
