@@ -27,8 +27,6 @@ export default class CovidTable extends Component {
 
   onPopulationValueChanged(value) {
     const newWorldWideData = { ...this.props.worldWideData };
-    // const activeCountry = { ...this.props.activeCountry };
-    // const relativeActiveCountry = { ...this.props.relativeActiveCountry };
 
     this.props.setPopulationTypeValue(value);
     if (value === POPULATION_COUNT_TYPE.RELATIVE_TYPE) {
@@ -38,10 +36,8 @@ export default class CovidTable extends Component {
           * WORLD_WIDE_NUMBERS.POPULATION_KOEFICIENT);
       }
       this.props.setGlobalRelativeData(newWorldWideData);
-      // this.props.setCovidTableActiveCountryData(relativeActiveCountry);
     } else {
       this.props.setGlobalAbsoluteData(newWorldWideData);
-      // this.props.setCovidTableActiveCountryData(activeCountry);
     }
   }
 
@@ -56,7 +52,6 @@ export default class CovidTable extends Component {
       : this.onPopulationValueChanged(POPULATION_COUNT_TYPE.ABSOLUTE_TYPE)
   }
 
-
   render() {
     return (
       <div className={styles.covidTable}>Covid Table
@@ -68,22 +63,14 @@ export default class CovidTable extends Component {
         <CountryLevelContainer checked={this.state.isDay} />
         <label>Day
           <input type='checkbox'
-            // checked={this.state.isDay}
             onChange={(e) => this.changeInputDay(e)}
           />
         </label>
-
         <label>By 100k
           <input type='checkbox'
-            // checked={this.state.is100k}
             onChange={(e) => this.changeInput100K(e)}
           />
         </label>
-
-
-        {/* <button onClick={() => { this.onPopulationValueChanged(POPULATION_COUNT_TYPE.ABSOLUTE_TYPE) }}>Absolute</button>
-        <button
-          onClick={() => { this.onPopulationValueChanged(POPULATION_COUNT_TYPE.RELATIVE_TYPE) }}>By 100k</button> */}
       </div>
     )
   }
