@@ -27,12 +27,6 @@ let mapDispatchToProps = (dispatch) => {
         setActiveCountry: (activeCountry) => {
             dispatch(setActiveCountryActionCreator(activeCountry))
         },
-        setActiveRelativeCountry: (activeCountry) => {
-            dispatch(setActiveRelativeCountryActionCreator(activeCountry))
-        },
-        setCovidTableActiveCountry: (activeCountry) => {
-            dispatch(setCovidTableActiveCountryActionCreator(activeCountry))
-        },
         setIsCountrySelected: (value) => {
             dispatch(setIsCountrySelectedActionCreator(value))
         },

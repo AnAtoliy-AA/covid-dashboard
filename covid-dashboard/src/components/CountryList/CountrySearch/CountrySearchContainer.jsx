@@ -1,4 +1,4 @@
-import { setActiveCountryActionCreator, setActiveRelativeCountryActionCreator, setCountriesInfoDataActionCreator, setCovidTableActiveCountryActionCreator, setCovidTableWorldWideDataActionCreator, setGlobalDataActionCreator, setIsCountrySelectedActionCreator } from '../../../redux/countryList-reducer';
+import { setActiveCountryActionCreator, setCountriesInfoDataActionCreator, setIsCountrySelectedActionCreator } from '../../../redux/countryList-reducer';
 
 import CountrySearch from './CountrySearch';
 import { connect } from 'react-redux';
@@ -15,20 +15,8 @@ let mapDispatchToProps = (dispatch) => {
     setCountriesInfoData: (countryInfoList) => {
       dispatch(setCountriesInfoDataActionCreator(countryInfoList))
     },
-    setGlobalData: (worldWideData) => {
-      dispatch(setGlobalDataActionCreator(worldWideData))
-    },
-    setCovidTableWorldWideData: (covidTableWorldWideData) => {
-      dispatch(setCovidTableWorldWideDataActionCreator(covidTableWorldWideData))
-    },
     setActiveCountry: (activeCountry) => {
       dispatch(setActiveCountryActionCreator(activeCountry))
-    },
-    setActiveRelativeCountry: (activeCountry) => {
-      dispatch(setActiveRelativeCountryActionCreator(activeCountry))
-    },
-    setCovidTableActiveCountry: (activeCountry) => {
-      dispatch(setCovidTableActiveCountryActionCreator(activeCountry))
     },
     setIsCountrySelected: (value) => {
       dispatch(setIsCountrySelectedActionCreator(value))
