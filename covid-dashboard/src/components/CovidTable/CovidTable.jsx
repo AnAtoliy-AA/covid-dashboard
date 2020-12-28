@@ -41,15 +41,21 @@ export default class CovidTable extends Component {
     }
   }
 
-  changeInputDay(e) {
+  changeInputDay() {
     this.setState({ isDay: !this.state.isDay });
+    (this.state.isDay)
+      ? this.props.setIsLastDaySelected(true)
+      : this.props.setIsLastDaySelected(false)
   }
 
-  changeInput100K(e) {
+  changeInput100K() {
     this.setState({ is100k: !this.state.is100k });
     (this.state.is100k)
       ? this.onPopulationValueChanged(POPULATION_COUNT_TYPE.RELATIVE_TYPE)
-      : this.onPopulationValueChanged(POPULATION_COUNT_TYPE.ABSOLUTE_TYPE)
+      : this.onPopulationValueChanged(POPULATION_COUNT_TYPE.ABSOLUTE_TYPE);
+      (this.state.is100k)
+      ? this.props.setIsRelativePopulationSeleted(true)
+      : this.props.setIsRelativePopulationSeleted(false)
   }
 
   render() {
@@ -63,12 +69,12 @@ export default class CovidTable extends Component {
         <CountryLevelContainer checked={this.state.isDay} />
         <label>Day
           <input type='checkbox'
-            onChange={(e) => this.changeInputDay(e)}
+            onChange={() => this.changeInputDay()}
           />
         </label>
         <label>By 100k
           <input type='checkbox'
-            onChange={(e) => this.changeInput100K(e)}
+            onChange={() => this.changeInput100K()}
           />
         </label>
       </div>

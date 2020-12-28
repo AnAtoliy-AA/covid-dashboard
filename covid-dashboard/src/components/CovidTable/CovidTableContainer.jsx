@@ -1,4 +1,4 @@
-import { setCountriesRelativeDataActionCreator, setCovidTableActiveCountryDataActionCreator, setGlobalAbsoluteDataActionCreator, setGlobalRelativeDataActionCreator, setPopulationTypeValueActionCreator } from '../../redux/countryList-reducer';
+import { setCountriesRelativeDataActionCreator, setCovidTableActiveCountryDataActionCreator, setGlobalAbsoluteDataActionCreator, setGlobalRelativeDataActionCreator, setIsLastDaySelectedActionCreator, setIsRelativePopulationSeletedActionCreator, setPopulationTypeValueActionCreator } from '../../redux/countryList-reducer';
 
 import CovidTable from './CovidTable';
 import { connect } from 'react-redux';
@@ -11,6 +11,7 @@ let mapStateToProps = (state) => {
         relativeActiveCountry: state.countryList.relativeActiveCountry,
         countryList: state.countryList.countryList,
         populationValueType: state.countryList.populationValueType,
+        isLastDaySelected: state.countryList.isLastDaySelected,
     }
 }
 
@@ -30,7 +31,13 @@ let mapDispatchToProps = (dispatch) => {
         },
         setCovidTableActiveCountryData: (activeCountry) => {
             dispatch(setCovidTableActiveCountryDataActionCreator(activeCountry))
-        }
+        },
+        setIsLastDaySelected: (value) => {
+            dispatch(setIsLastDaySelectedActionCreator(value))
+        },
+        setIsRelativePopulationSeleted: (value) => {
+            dispatch(setIsRelativePopulationSeletedActionCreator(value))
+        },
     }
 }
 
