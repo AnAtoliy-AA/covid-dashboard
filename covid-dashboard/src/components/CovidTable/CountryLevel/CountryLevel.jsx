@@ -6,38 +6,41 @@ export default class CountryLevel extends Component {
 
   render() {
 
-    if(this.props.checked===false){
-      return(     
-      <div className={styles.countryDeaths}>
+    if (!this.props.checked) {
+      return (
+        <div className={styles.countryDeaths}>
           <div className={styles.styleConfirmed}>New {this.props.activeCountry.country} confirmed :
              {(this.props.isCountrySelected)
-             ? <div className={styles.confirmed}>
-                 {this.props.activeCountry.todayCases}
+              ? <div className={styles.confirmed}>
+                {(this.props.populationValueType === 'absolute')
+                  ? this.props.activeCountry.todayCases
+                  : Math.floor(this.props.activeCountry.todayCases / this.props.activeCountryPopulation * 100000)}
               </div>
-             : <div className={styles.confirmed}>
+              : <div className={styles.confirmed}>
                 {this.props.covidTableWorldWideData.NewConfirmed}
-             </div>
-             }
-           </div>
-      </div>)
+              </div>
+            }
+          </div>
+        </div>)
     } else {
       return (
         <div className={styles.countryLevel}>
-            <div>
-              {(this.props.isCountrySelected)
-                ? <div className={styles.styleConfirmed}>{this.props.activeCountry.country} Confirmed :
-                  <div className={styles.confirmed}>{this.props.activeCountry.cases}</div>
+          <div>
+            {(this.props.isCountrySelected)
+              ? <div className={styles.styleConfirmed}>{this.props.activeCountry.country} Confirmed :
+                  <div className={styles.confirmed}>
+                  {(this.props.populationValueType === 'absolute')
+                    ? this.props.activeCountry.cases
+                    : Math.floor(this.props.activeCountry.casesPerOneMillion / 10)}
                 </div>
-                : <div className={styles.styleConfirmed}>World confirmed :
+              </div>
+              : <div className={styles.styleConfirmed}>World confirmed :
                   <div className={styles.confirmed}>{this.props.covidTableWorldWideData.TotalConfirmed}</div>
-                </div>
-              }
-            </div>
+              </div>
+            }
+          </div>
         </div>
       )
     }
-
-
-    
   }
 }
