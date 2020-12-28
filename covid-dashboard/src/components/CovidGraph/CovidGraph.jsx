@@ -256,11 +256,11 @@ export default class CovidGraph extends Component {
           <Line
             data={this.state.chartData.data}
             options={this.state.chartData.options}
-            width={'100%'}
-            height={'100%'}
+            // width={'100%'}
+            // height={'100%'}
           />
         )}
-        <div>
+        {/* <div>
           <button
             id='cases'
             onClick={(event) =>
@@ -299,7 +299,7 @@ export default class CovidGraph extends Component {
               onChange={(e) => this.changeInput(e)}
             />
           </label>
-        </div>
+        </div> */}
       </div>
     );
   }

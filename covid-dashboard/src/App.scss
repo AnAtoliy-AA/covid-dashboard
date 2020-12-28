@@ -15,7 +15,7 @@
     'list map map chart'
     'list map map chart'
     'footer footer footer footer';
-  grid-template-rows: 8% 10% 2fr 3fr 2fr 8%;
+  grid-template-rows: 10% 20% 2fr 3fr 2fr 10%;
   grid-template-columns: 20% 25% 25% 29%;
   height: 100vh;
   margin: 0;
@@ -51,4 +51,23 @@
 
 ::-webkit-scrollbar {
   width: 4px;
+}
+
+@media only screen and (max-width: 700px){
+  .app-wrapper {
+    grid-template-areas:
+      'header'
+      'cases'
+      'list'
+      'map'
+      'table'
+      'chart'
+      'footer';
+    grid-template-rows: 8% 10% 20% 24% 10% auto 8%;
+    grid-template-columns: 1fr;
+    // height: 100%;
+    margin: 0;
+    background-color: #000;
+    color: $textColor;
+  }
 }
