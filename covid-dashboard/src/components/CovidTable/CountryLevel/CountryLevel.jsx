@@ -6,13 +6,15 @@ export default class CountryLevel extends Component {
 
   render() {
 
-    if (this.props.checked === false) {
+    if (!this.props.checked) {
       return (
         <div className={styles.countryDeaths}>
           <div className={styles.styleConfirmed}>New {this.props.activeCountry.country} confirmed :
              {(this.props.isCountrySelected)
               ? <div className={styles.confirmed}>
-                {(this.props.populationValueType === 'absolute') ? this.props.activeCountry.todayRecovered : Math.floor(this.props.activeCountry.todayRecovered / this.props.activeCountryPopulation * 100000)}
+                {(this.props.populationValueType === 'absolute')
+                  ? this.props.activeCountry.todayCases
+                  : Math.floor(this.props.activeCountry.todayCases / this.props.activeCountryPopulation * 100000)}
               </div>
               : <div className={styles.confirmed}>
                 {this.props.covidTableWorldWideData.NewConfirmed}
@@ -27,7 +29,9 @@ export default class CountryLevel extends Component {
             {(this.props.isCountrySelected)
               ? <div className={styles.styleConfirmed}>{this.props.activeCountry.country} Confirmed :
                   <div className={styles.confirmed}>
-                  {(this.props.populationValueType === 'absolute') ? this.props.activeCountry.cases : Math.floor(this.props.activeCountry.casesPerOneMillion / 10)}
+                  {(this.props.populationValueType === 'absolute')
+                    ? this.props.activeCountry.cases
+                    : Math.floor(this.props.activeCountry.casesPerOneMillion / 10)}
                 </div>
               </div>
               : <div className={styles.styleConfirmed}>World confirmed :
@@ -38,8 +42,5 @@ export default class CountryLevel extends Component {
         </div>
       )
     }
-
-
-
   }
 }
