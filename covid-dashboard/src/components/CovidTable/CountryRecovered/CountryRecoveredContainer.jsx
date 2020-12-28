@@ -5,7 +5,6 @@ let mapStateToProps = (state) => {
     return {
         worldWideData: state.countryList.worldWideData,
         activeCountry: state.countryList.activeCountry,
-        activeCountryPopulation: state.countryList.activeCountry.population,
         covidTableWorldWideData: state.countryList.covidTableWorldWideData,
         isCountrySelected: state.countryList.isCountrySelected,
         isLastDaySelected: state.countryList.isLastDaySelected,

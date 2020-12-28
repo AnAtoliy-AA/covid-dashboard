@@ -8,8 +8,7 @@ export default class CovidGraph extends Component {
   constructor(props) {
     super(props);
     this.input = React.createRef();
-    this.isDaily = false;
-
+    // this.isDaily = false;
     this.state = {
       chartData: {},
     };
@@ -28,7 +27,8 @@ export default class CovidGraph extends Component {
     axios
       .get('https://disease.sh/v3/covid-19/historical/all?lastdays=366')
       .then((response) => {
-        this.isDaily
+        // this.isDaily
+       (!this.props.isLastDaySelected)
           ? this.setState({
               chartData: {
                 data: {
@@ -140,7 +140,8 @@ export default class CovidGraph extends Component {
         `https://api.covid19api.com/dayone/country/${this.props.activeCountry.country}/status/${indicator}`
       )
       .then((response) => {
-        this.isDaily
+        // this.isDaily
+        (this.props.isLastDaySelected)
           ? this.setState({
               chartData: {
                 data: {
@@ -237,15 +238,16 @@ export default class CovidGraph extends Component {
       });
   }
 
-  changeInput(e) {
-    const target = e.target;
-    this.isDaily = target.type === 'checkbox' ? target.checked : target.value;
-  }
+  // changeInput(e) {
+  //   const target = e.target;
+  //   this.isDaily = target.type === 'checkbox' ? target.checked : target.value;
+  // }
 
   render() {
     return (
       <div className={styles.covidGraph}>
-        {this.isDaily ? (
+         {/* {this.isDaily ? ( */}
+        {this.props.isLastDaySelected? (
           <Bar
             data={this.state.chartData.data}
             options={this.state.chartData.options}

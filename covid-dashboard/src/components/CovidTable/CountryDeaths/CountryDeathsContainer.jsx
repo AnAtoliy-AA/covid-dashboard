@@ -9,7 +9,6 @@ let mapStateToProps = (state) => {
         isCountrySelected: state.countryList.isCountrySelected,
         isLastDaySelected: state.countryList.isLastDaySelected,
         isRelativePopulationSeleted: state.countryList.isRelativePopulationSeleted,
-        activeCountryPopulation: state.countryList.activeCountry.population,
     }
 }
 
