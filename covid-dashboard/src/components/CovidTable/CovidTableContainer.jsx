@@ -1,4 +1,4 @@
-import { setCovidTableWorldWideDataActionCreator, setIsLastDaySelectedActionCreator, setIsRelativePopulationSeletedActionCreator } from '../../redux/countryList-reducer';
+import { setCovidTableWorldWideData, setIsLastDaySelected, setIsRelativePopulationSeleted } from '../../redux/countryList-reducer';
 
 import CovidTable from './CovidTable';
 import { connect } from 'react-redux';
@@ -15,18 +15,18 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        setIsLastDaySelected: (value) => {
-            dispatch(setIsLastDaySelectedActionCreator(value))
-        },
-        setCovidTableWorldWideData: (value) => {
-            dispatch(setCovidTableWorldWideDataActionCreator(value))
-        },
-        setIsRelativePopulationSeleted: (value) => {
-            dispatch(setIsRelativePopulationSeletedActionCreator(value))
-        },
-    }
-}
+// let mapDispatchToProps = (dispatch) => {
+//     return {
+//         setIsLastDaySelected: (value) => {
+//             dispatch(setIsLastDaySelectedActionCreator(value))
+//         },
+//         setCovidTableWorldWideData: (value) => {
+//             dispatch(setCovidTableWorldWideDataActionCreator(value))
+//         },
+//         setIsRelativePopulationSeleted: (value) => {
+//             dispatch(setIsRelativePopulationSeletedActionCreator(value))
+//         },
+//     }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CovidTable);
+export default connect(mapStateToProps, { setCovidTableWorldWideData, setIsLastDaySelected, setIsRelativePopulationSeleted })(CovidTable);

@@ -1,4 +1,4 @@
-import { setActiveCountryActionCreator, setIsCountrySelectedActionCreator } from '../../../redux/countryList-reducer';
+import { setActiveCountry, setIsCountrySelected } from '../../../redux/countryList-reducer';
 
 import CountrySearch from './CountrySearch';
 import { connect } from 'react-redux';
@@ -9,15 +9,15 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    setActiveCountry: (activeCountry) => {
-      dispatch(setActiveCountryActionCreator(activeCountry))
-    },
-    setIsCountrySelected: (value) => {
-      dispatch(setIsCountrySelectedActionCreator(value))
-    },
-  }
-};
+// let mapDispatchToProps = (dispatch) => {
+//   return {
+//     setActiveCountry: (activeCountry) => {
+//       dispatch(setActiveCountryActionCreator(activeCountry))
+//     },
+//     setIsCountrySelected: (value) => {
+//       dispatch(setIsCountrySelectedActionCreator(value))
+//     },
+//   }
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CountrySearch);
+export default connect(mapStateToProps, { setActiveCountry, setIsCountrySelected })(CountrySearch);

@@ -1,6 +1,6 @@
 import CovidMap from './CovidMap';
 import { connect } from 'react-redux';
-import { setActiveCountryActionCreator } from '../../redux/countryList-reducer';
+import { setActiveCountry } from '../../redux/countryList-reducer';
 
 let mapStateToProps = (state) => {
     return {
@@ -12,12 +12,12 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        setActiveCountry: (activeCountry) => {
-            dispatch(setActiveCountryActionCreator(activeCountry));
-          },
-    }
-}
+// let mapDispatchToProps = (dispatch) => {
+//     return {
+//         setActiveCountry: (activeCountry) => {
+//             dispatch(setActiveCountryActionCreator(activeCountry));
+//           },
+//     }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CovidMap);
+export default connect(mapStateToProps, { setActiveCountry })(CovidMap);

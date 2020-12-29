@@ -1,9 +1,8 @@
-import * as axios from 'axios';
-
 import React, { Component } from 'react';
 
 import CountrySearchContainer from './CountrySearch/CountrySearchContainer';
 import ListCountryConteiner from './ListCountry/ListCountryConteiner';
+import { countriesAPI } from '../../api/api';
 import styles from './CountryList.module.scss';
 
 const COUNTRY_SELECTED = {
@@ -12,13 +11,15 @@ const COUNTRY_SELECTED = {
 };
 export default class CountryList extends Component {
   componentDidMount() {
-    axios.get(`https://api.covid19api.com/summary`).then((response) => {
-      this.props.setWorldWideData(response.data.Global);
-      this.props.setCovidTableWorldWideData(response.data.Global);
-    });
-    axios.get(`https://disease.sh/v3/covid-19/countries`).then((response) => {
-      this.props.setCountriesInfoData(response.data);
-    });
+    countriesAPI.getWorldWide()
+      .then((data) => {
+        this.props.setWorldWideData(data.Global);
+        this.props.setCovidTableWorldWideData(data.Global);
+      });
+    countriesAPI.getCountriesInfo()
+      .then((data) => {
+        this.props.setCountriesInfoData(data);
+      });
   }
 
   onCountryChanged(activeCountry) {

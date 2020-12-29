@@ -1,3 +1,4 @@
+import { countriesAPI } from "../api/api"
 import { defaultcountryInfoList } from "./countryInfoList"
 
 const ACTION_CONST = {
@@ -93,12 +94,22 @@ const countryListReducer = (state = initialState, action) => {
     }
 }
 
-export const setWorldWideDataActionCreator = (worldWideData) => ({ type: ACTION_CONST.SET_WORLD_WIDE_DATA, worldWideData });
-export const setCovidTableWorldWideDataActionCreator = (covidTableWorldWideData) => ({ type: ACTION_CONST.SET_COVID_TABLE_WORLD_WIDE_DATA, covidTableWorldWideData });
-export const setCountriesInfoDataActionCreator = (countryInfoList) => ({ type: ACTION_CONST.SET_COUNTRIES_INFO, countryInfoList })
-export const setActiveCountryActionCreator = (activeCountry) => ({ type: ACTION_CONST.SET_ACTIVE_COUNTRY, activeCountry });
-export const setIsLastDaySelectedActionCreator = (value) => ({ type: ACTION_CONST.SET_IS_LAST_DAY_SELECTED, value });
-export const setIsCountrySelectedActionCreator = (value) => ({ type: ACTION_CONST.SET_IS_COUNTRY_SELECTED, value });
-export const setIsRelativePopulationSeletedActionCreator = (value) => ({ type: ACTION_CONST.SET_IS_RELATIVE_POPULATION_SELECTED, value });
+export const setWorldWideData = (worldWideData) => ({ type: ACTION_CONST.SET_WORLD_WIDE_DATA, worldWideData });
+export const setCovidTableWorldWideData = (covidTableWorldWideData) => ({ type: ACTION_CONST.SET_COVID_TABLE_WORLD_WIDE_DATA, covidTableWorldWideData });
+export const setCountriesInfoData = (countryInfoList) => ({ type: ACTION_CONST.SET_COUNTRIES_INFO, countryInfoList })
+export const setActiveCountry = (activeCountry) => ({ type: ACTION_CONST.SET_ACTIVE_COUNTRY, activeCountry });
+export const setIsLastDaySelected = (value) => ({ type: ACTION_CONST.SET_IS_LAST_DAY_SELECTED, value });
+export const setIsCountrySelected = (value) => ({ type: ACTION_CONST.SET_IS_COUNTRY_SELECTED, value });
+export const setIsRelativePopulationSeleted = (value) => ({ type: ACTION_CONST.SET_IS_RELATIVE_POPULATION_SELECTED, value });
+
+export const getWorldWide = () => {
+    return (dispatch) => {
+        countriesAPI.getWorldWide()
+            .then((data) => {
+                dispatch(setWorldWideData(data.Global));
+                dispatch(setCovidTableWorldWideData(data.Global));
+            });
+    }
+}
 
 export default countryListReducer;
