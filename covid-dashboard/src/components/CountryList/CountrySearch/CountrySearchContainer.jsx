@@ -9,15 +9,4 @@ let mapStateToProps = (state) => {
   };
 };
 
-// let mapDispatchToProps = (dispatch) => {
-//   return {
-//     setActiveCountry: (activeCountry) => {
-//       dispatch(setActiveCountryActionCreator(activeCountry))
-//     },
-//     setIsCountrySelected: (value) => {
-//       dispatch(setIsCountrySelectedActionCreator(value))
-//     },
-//   }
-// };
-
 export default connect(mapStateToProps, { setActiveCountry, setIsCountrySelected })(CountrySearch);

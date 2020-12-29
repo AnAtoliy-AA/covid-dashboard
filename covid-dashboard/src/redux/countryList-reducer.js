@@ -112,4 +112,13 @@ export const getWorldWide = () => {
     }
 }
 
+export const getCountriesInfo = () => {
+    return (dispatch) => {
+        countriesAPI.getCountriesInfo()
+            .then((data) => {
+                dispatch(setCountriesInfoData(data));
+            });
+    }
+}
+
 export default countryListReducer;
