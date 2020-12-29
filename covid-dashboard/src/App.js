@@ -1,8 +1,8 @@
 import './App.scss';
 
-import CountryListContainer from './components/CountryList/CountryListContainer';
-import CovidMapContainer from './components/CovidMap/CovidMapContainer';
+import AllCountryListContainer from './components/CountryList/AllCountryListContainer';
 import CovidGraphContainer from './components/CovidGraph/CovidGraphContainer';
+import CovidMapContainer from './components/CovidMap/CovidMapContainer';
 import CovidTableContainer from './components/CovidTable/CovidTableContainer';
 import FooterContainer from './components/Footer/FooterContainer';
 import GlobalCasesContainer from './components/GlobalCases/GlobalCasesContainer';
@@ -14,7 +14,7 @@ function App() {
     <div className='app-wrapper'>
       <HeaderContainer />
       <GlobalCasesContainer />
-      <CountryListContainer />
+      <AllCountryListContainer />
       <CovidTableContainer />
       <CovidMapContainer />
       <CovidGraphContainer />

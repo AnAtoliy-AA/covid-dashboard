@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../CountryList.module.scss';
 
-export default function ListCountry (props){
+export default function CountryList (props){
            if(props.countryInfoList !== undefined)  {
                return(props.countryInfoList.map((c) => {
                 return (
