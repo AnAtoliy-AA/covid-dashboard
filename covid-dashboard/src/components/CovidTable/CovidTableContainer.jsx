@@ -1,4 +1,4 @@
-import { setCountriesRelativeDataActionCreator, setCovidTableActiveCountryDataActionCreator, setGlobalAbsoluteDataActionCreator, setGlobalRelativeDataActionCreator, setPopulationTypeValueActionCreator } from '../../redux/countryList-reducer';
+import { setCovidTableWorldWideData, setIsLastDaySelected, setIsRelativePopulationSeleted } from '../../redux/countryList-reducer';
 
 import CovidTable from './CovidTable';
 import { connect } from 'react-redux';
@@ -10,28 +10,23 @@ let mapStateToProps = (state) => {
         activeCountry: state.countryList.activeCountry,
         relativeActiveCountry: state.countryList.relativeActiveCountry,
         countryList: state.countryList.countryList,
-        populationValueType: state.countryList.populationValueType,
+        isLastDaySelected: state.countryList.isLastDaySelected,
+        isRelativePopulationSeleted: state.countryList.isRelativePopulationSeleted,
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        setPopulationTypeValue: (populationValueType) => {
-            dispatch(setPopulationTypeValueActionCreator(populationValueType))
-        },
-        setCountriesRelativeData: (countryList) => {
-            dispatch(setCountriesRelativeDataActionCreator(countryList))
-        },
-        setGlobalAbsoluteData: (covidTableWorldWideData) => {
-            dispatch(setGlobalAbsoluteDataActionCreator(covidTableWorldWideData))
-        },
-        setGlobalRelativeData: (covidTableWorldWideData) => {
-            dispatch(setGlobalRelativeDataActionCreator(covidTableWorldWideData))
-        },
-        setCovidTableActiveCountryData: (activeCountry) => {
-            dispatch(setCovidTableActiveCountryDataActionCreator(activeCountry))
-        }
-    }
-}
+// let mapDispatchToProps = (dispatch) => {
+//     return {
+//         setIsLastDaySelected: (value) => {
+//             dispatch(setIsLastDaySelectedActionCreator(value))
+//         },
+//         setCovidTableWorldWideData: (value) => {
+//             dispatch(setCovidTableWorldWideDataActionCreator(value))
+//         },
+//         setIsRelativePopulationSeleted: (value) => {
+//             dispatch(setIsRelativePopulationSeletedActionCreator(value))
+//         },
+//     }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CovidTable);
+export default connect(mapStateToProps, { setCovidTableWorldWideData, setIsLastDaySelected, setIsRelativePopulationSeleted })(CovidTable);

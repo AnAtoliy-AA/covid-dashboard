@@ -16,7 +16,7 @@ export default class CountrySearch extends Component {
   }
 
   onCountryChanged(activeCountry) {
-      this.setState({ searchTerm: '' });
+    this.setState({ searchTerm: '' });
     this.props.setActiveCountry(activeCountry);
     this.props.setIsCountrySelected(COUNTRY_SELECTED.TRUE);
   }
@@ -33,7 +33,7 @@ export default class CountrySearch extends Component {
         />
         <div
           className={
-            this.state.searchTerm.length !== 0
+            (this.state.searchTerm.length !== 0)
               ? styles.results
               : styles.results__hide
           }
@@ -41,12 +41,11 @@ export default class CountrySearch extends Component {
           <ul className={styles.countries}>
             {(this.props.countryInfoList) ? (
               this.props.countryInfoList.map((country) => {
-                if (
-                  country.country.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+                if (country.country.toLowerCase().includes(this.state.searchTerm.toLowerCase())
                 ) {
                   return (
                     <li
-                      key={country.CountryCode}
+                      key={country.country}
                       className={styles.countryItem}
                       onClick={() => this.onCountryChanged(country)}
                     >
@@ -63,8 +62,8 @@ export default class CountrySearch extends Component {
                 }
               })
             ) : (
-              <p>Something went wrong with API. Please, try again later!</p>
-            )}
+                <p>Something went wrong with API. Please, try again later!</p>
+              )}
           </ul>
         </div>
       </div>

@@ -1,11 +1,14 @@
-import countryListReducer from './countryList-reducer'
+import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 
-const { createStore, combineReducers } = require("redux");
+import countryListReducer from './countryList-reducer'
+import thunkMiddleware from 'redux-thunk';
 
 let reducers = combineReducers({
     countryList: countryListReducer,
 })
 
-let store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+let store = createStore(reducers, composeEnhancer(applyMiddleware(thunkMiddleware)));
 
 export default store;

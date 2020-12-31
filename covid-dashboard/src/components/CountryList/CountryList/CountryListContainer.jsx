@@ -1,4 +1,4 @@
-import ListCountry from './ListCountry';
+import CountryList from './CountryList';
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
@@ -8,10 +8,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ListCountry);
+export default connect(mapStateToProps, {})(CountryList);

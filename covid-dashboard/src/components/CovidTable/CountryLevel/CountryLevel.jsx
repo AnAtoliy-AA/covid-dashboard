@@ -6,13 +6,13 @@ export default class CountryLevel extends Component {
 
   render() {
 
-    if (!this.props.checked) {
+    if (this.props.isLastDaySelected) {
       return (
         <div className={styles.countryDeaths}>
           <div className={styles.styleConfirmed}>New {this.props.activeCountry.country} confirmed :
              {(this.props.isCountrySelected)
               ? <div className={styles.confirmed}>
-                {(this.props.populationValueType === 'absolute')
+                {(!this.props.isRelativePopulationSeleted)
                   ? this.props.activeCountry.todayCases
                   : Math.floor(this.props.activeCountry.todayCases / this.props.activeCountryPopulation * 100000)}
               </div>
@@ -29,7 +29,7 @@ export default class CountryLevel extends Component {
             {(this.props.isCountrySelected)
               ? <div className={styles.styleConfirmed}>{this.props.activeCountry.country} Confirmed :
                   <div className={styles.confirmed}>
-                  {(this.props.populationValueType === 'absolute')
+                  {(!this.props.isRelativePopulationSeleted)
                     ? this.props.activeCountry.cases
                     : Math.floor(this.props.activeCountry.casesPerOneMillion / 10)}
                 </div>

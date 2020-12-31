@@ -10,65 +10,48 @@ const WORLD_WIDE_NUMBERS = {
   POPULATION_KOEFICIENT: 100000,
 }
 
-const POPULATION_COUNT_TYPE = {
-  ABSOLUTE_TYPE: 'absolute',
-  RELATIVE_TYPE: 'relative',
-}
-
 export default class CovidTable extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      isDay: true,
-      is100k: true,
-    };
-  }
-
-  onPopulationValueChanged(value) {
+  onPopulationValueChanged() {
     const newWorldWideData = { ...this.props.worldWideData };
 
-    this.props.setPopulationTypeValue(value);
-    if (value === POPULATION_COUNT_TYPE.RELATIVE_TYPE) {
+    if (!this.props.isRelativePopulationSeleted) {
       for (let key in newWorldWideData) {
         newWorldWideData[key] = Math.floor(newWorldWideData[key]
           / WORLD_WIDE_NUMBERS.WORLD_WIDE_POPULATION
           * WORLD_WIDE_NUMBERS.POPULATION_KOEFICIENT);
       }
-      this.props.setGlobalRelativeData(newWorldWideData);
+      this.props.setCovidTableWorldWideData(newWorldWideData);
     } else {
-      this.props.setGlobalAbsoluteData(newWorldWideData);
+      this.props.setCovidTableWorldWideData(newWorldWideData);
     }
   }
 
-  changeInputDay(e) {
-    this.setState({ isDay: !this.state.isDay });
+  changeInputDay() {
+    this.props.setIsLastDaySelected(!this.props.isLastDaySelected)
   }
 
-  changeInput100K(e) {
-    this.setState({ is100k: !this.state.is100k });
-    (this.state.is100k)
-      ? this.onPopulationValueChanged(POPULATION_COUNT_TYPE.RELATIVE_TYPE)
-      : this.onPopulationValueChanged(POPULATION_COUNT_TYPE.ABSOLUTE_TYPE)
+  changeInput100K() {
+    this.props.setIsRelativePopulationSeleted(!this.props.isRelativePopulationSeleted)
+    this.onPopulationValueChanged();
   }
 
   render() {
     return (
       <div className={styles.covidTable}>Covid Table
         <hr />
-        <CountryDeathsContainer checked={this.state.isDay} />
+        <CountryDeathsContainer />
         <hr />
-        <CountryRecoveredContainer checked={this.state.isDay} />
+        <CountryRecoveredContainer />
         <hr />
-        <CountryLevelContainer checked={this.state.isDay} />
+        <CountryLevelContainer />
         <label>Day
           <input type='checkbox'
-            onChange={(e) => this.changeInputDay(e)}
+            onChange={() => this.changeInputDay()}
           />
         </label>
         <label>By 100k
           <input type='checkbox'
-            onChange={(e) => this.changeInput100K(e)}
+            onChange={() => this.changeInput100K()}
           />
         </label>
       </div>

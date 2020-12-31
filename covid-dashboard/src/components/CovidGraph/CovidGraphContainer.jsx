@@ -1,13 +1,15 @@
 import CovidGraph from './CovidGraph';
 import { connect } from 'react-redux';
-// import { setActiveCountryActionCreator } from '../../../redux/countryList-reducer';
 
 let mapStateToProps = (state) => {
   return {
-    // worldWideData: state.countryList.worldWideData,
     activeCountry: state.countryList.activeCountry,
+    isCountrySelected: state.countryList.isCountrySelected,
+    isLastDaySelected: state.countryList.isLastDaySelected,
+    isRelativePopulationSeleted: state.countryList.isRelativePopulationSeleted,
   };
 };
+
 let mapDispatchToProps = (dispatch) => {
   return {};
 };
